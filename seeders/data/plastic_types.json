@@ -1,0 +1,25 @@
+{
+  "plastic_types": [
+      {
+          "label": "straw"
+      },
+      {
+          "label": "cup lid"
+      },
+      {
+          "label": "bottle"
+      },
+      {
+          "label": "bag"
+      },
+      {
+          "label": "jar"
+      },
+      {
+          "label": "box"
+      },
+      {
+          "label": "other"
+      }
+  ]
+}
