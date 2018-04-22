@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title login
+    include stylesheets.pug
+  body
+    h1 sign in or sign up!
+
+  block content
+    button#showLogin login
+    button#showRegister sign up
+
+    script
+      include ../client/client.js
+      

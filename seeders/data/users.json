@@ -1,13 +1,10 @@
 {
   "users": [
     {
-      "username": "kyky"
-    },
-    {
-      "username": "Murph"
-    },
-    {
-      "username": "Adriene"
+      "first_name": "Adriene",
+      "last_name": "Mischler",
+      "username": "fwfg",
+      "email":"fwfg@fwfg.com"
     }
   ]
 }
