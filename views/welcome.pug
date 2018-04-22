@@ -9,3 +9,8 @@ block content
       h1 #{messages.welcomeBackMsg} #{session.passport.user.first_name}
       //- This would be more permanent
       //- h1 Welcome back, #{session.passport.user.first_name}
+
+  form#savePlastic(name="savedPlastic" method="post" action="/laststraw")
+    label(for="straw") how many straws saved?
+    input.text(id="straw" name="straw" type="number")
+    input.btn(type="submit" value="Save it!")
