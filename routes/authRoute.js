@@ -12,6 +12,8 @@ const {
   logout
 } = require('../controllers/authCtrl.js');
 
+const {postStraw} = require('../controllers/strawCtrl.js')
+
 // new users
 router.get('/register', displayRegister);
 router.post('/register', register);
