@@ -7,9 +7,9 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    order_creation_date: DataTypes.STRING
+    quantity: DataTypes.INTEGER
 
-  }, {timestamps:false});
+  }, {timestamps:true});
 
   return user_reuse_this_plastic;
 };

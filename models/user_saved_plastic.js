@@ -1,15 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var user_reuse_this_plastic = sequelize.define('user_reuse_this_plastic', {
+  var user_saved_plastic = sequelize.define('user_saved_plastic', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    order_creation_date: DataTypes.STRING
+    quantity: DataTypes.INTEGER
+   
 
-  }, {timestamps:false});
+  }, {timestamps:true});
 
-  return user_reuse_this_plastic;
+  return user_saved_plastic;
 };

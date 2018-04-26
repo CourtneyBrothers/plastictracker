@@ -10,7 +10,25 @@ block content
       //- This would be more permanent
       //- h1 Welcome back, #{session.passport.user.first_name}
 
-  form#savePlastic(name="savedPlastic" method="post" action="/laststraw")
-    label(for="straw") how many straws saved?
-    input(name="1" type="number")
-    input.btn(type="submit" value="Save it!")
+    unless session.passport
+      h1 please log in first!
+
+    unless !session.passport
+      h1 What did you save?
+    
+      form(action="/savedplastic" method="POST")
+        label(for="SavedPlasticTypeId")  Plastic Type
+        select(name="SavedPlasticTypeId" placeholder="Select Plastic Type" required)
+          option(value="") None
+          option(value="1") Straw
+          option(value="2") Cup Lid
+          option(value="3") Bottle
+          option(value="4") Bag
+          option(value="5") Jar
+          option(value="6") Box
+          option(value="7") Other
+          option(value="8") Plastic Wrap
+        label(for="quantity") Quantity: 
+        input.text(id="quantity" name="quantity" type="number" required="required")
+        input.btn(type="submit" value="Submit" id="submit")
+
