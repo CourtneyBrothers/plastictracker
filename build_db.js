@@ -11,7 +11,10 @@ models.sequelize.sync({force: true})
   return models.User.bulkCreate(users)
 })
 .then(()=>{
-  return models.Plastic_Type.bulkCreate(plastic_types)
+  return models.Saved_Plastic_Type.bulkCreate(plastic_types)
+})
+.then(()=>{
+  return models.Reuse_This_Plastic.bulkCreate(plastic_types)
 })
 .then(()=>{
   process.exit();

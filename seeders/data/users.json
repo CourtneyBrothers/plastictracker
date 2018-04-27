@@ -1,13 +1,11 @@
 {
   "users": [
     {
-      "username": "kyky"
-    },
-    {
-      "username": "Murph"
-    },
-    {
-      "username": "Adriene"
+      "first_name": "trent",
+      "last_name": "hodges",
+      "username": "surfon",
+      "email":"th@surf.com",
+      "password":"$2a$08$Rg5HlSq.Lzfu.6x02u.2tugK/6WBeXfp2eBPtbuv01eAa2zaJynJ2"
     }
   ]
 }
