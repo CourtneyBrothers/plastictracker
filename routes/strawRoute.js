@@ -2,7 +2,7 @@
 
 const { Router } = require('express');
 const router = Router();
-const { postStraw } = require('../controllers/strawCtrl');
+const { postStraw, getStraws } = require('../controllers/strawCtrl');
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
@@ -10,5 +10,6 @@ function isLoggedIn(req, res, next) {
 }
 
 router.post('/savedplastic', postStraw, isLoggedIn);
+router.get('/savedplastic', getStraws);
 
 module.exports = router;
