@@ -5,7 +5,7 @@ html
   body
     include ./partials/nav.pug
     
-
+    
     unless sum
       h1 you don't have any stats yet!
 
@@ -13,6 +13,8 @@ html
     block content
       h1 all the straws you've saved!
         h2 #{sum}
+      h1 all the cup lids you've saved!
+        h2 #{cupLidSum}
     
 
         if session.passport
