@@ -12,3 +12,7 @@ document.getElementById("showRegister").addEventListener('click', () => {
 document.getElementById("submit").addEventListener('click', () => {
   location.href = `${location.origin}/savedplastic`
 });
+
+document.getElementById("notSavedSubmit").addEventListener('click', () => {
+  location.href = `${location.origin}/notsavedplastic`
+});

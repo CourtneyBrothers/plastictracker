@@ -7,8 +7,12 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    quantity: DataTypes.INTEGER
-
+    quantity: DataTypes.INTEGER,
+    singleUse:{
+      type: DataTypes.BOOLEAN, 
+      allowNull: false, 
+      defaultValue: true
+    }
   }, {timestamps:true});
 
   return user_reuse_this_plastic;
