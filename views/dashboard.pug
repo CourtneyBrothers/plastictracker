@@ -6,13 +6,13 @@ html
     include ./partials/nav.pug
     
 
-    unless result
+    unless sum
       h1 you don't have any stats yet!
 
     
     block content
       h1 all the straws you've saved!
-        h2 #{result.count}
+        h2 #{sum}
     
 
         if session.passport

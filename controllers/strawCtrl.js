@@ -15,14 +15,14 @@ module.exports.postStraw = (req, res, next) => {
 
 module.exports.getStraws = (req, res, next) => {
   const {user_saved_plastic} = req.app.get('models');
-  user_saved_plastic.findAndCountAll({
+  user_saved_plastic.sum('quantity', {
     where: 
       {UserId: req.session.passport.user.id,
         SavedPlasticTypeId: 1
       }
   })
-  .then(result => {
-    console.log(result.count);
-    res.render("dashboard",{result});
+  .then(sum => {
+    console.log(sum, "sum");
+    res.render("dashboard",{sum});
   })
 }
