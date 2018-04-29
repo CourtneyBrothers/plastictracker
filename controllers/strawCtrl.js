@@ -1,5 +1,10 @@
 'use strict';
 const passport = require('passport');
+var Sequelize = require('sequelize');
+var sequelize = new Sequelize('plastictracker', null, null, {
+  dialect: 'postgres'
+});
+
 
 module.exports.postStraw = (req, res, next) => {
   const {user_saved_plastic} = req.app.get('models');
@@ -29,18 +34,26 @@ module.exports.getStraws = (req, res, next) => {
 }
 
 module.exports.getStrawsStraw = (req, res, next) => {
-  const {user_saved_plastic} = req.app.get('models');
-  user_saved_plastic.sum('quantity', {
-    where: 
-      {UserId: req.session.passport.user.id,
-        SavedPlasticTypeId: 1 //this should be from route params
-      }
-  })
-  .then(sum => {
-    console.log(sum, "sum");
-    res.render("straws",{sum});
-  })
-}
+    const {user_saved_plastic} = req.app.get('models');
+    sequelize.query(`Select "SavedPlasticTypeId", SUM (quantity) AS quantity FROM user_saved_plastics where "UserId"=${req.session.passport.user.id} GROUP BY "SavedPlasticTypeId"`)
+    .then(results => {
+      console.log(results, "results");  
+    })
+  }
+
+// module.exports.getStrawsStraw = (req, res, next) => {
+//   const {user_saved_plastic} = req.app.get('models');
+//   user_saved_plastic.sum('quantity', {
+//     where: 
+//       {UserId: req.session.passport.user.id,
+//         SavedPlasticTypeId: 1 //this should be from route params
+//       }
+//   })
+//   .then(sum => {
+//     console.log(sum, "sum");
+//     res.render("straws",{sum});
+//   })
+// }
 
 module.exports.getCupLid = (req, res, next) => {
   const {user_saved_plastic} = req.app.get('models');
