@@ -36,8 +36,10 @@ module.exports.getStraws = (req, res, next) => {
 module.exports.getStrawsStraw = (req, res, next) => {
     const {user_saved_plastic} = req.app.get('models');
     sequelize.query(`Select "SavedPlasticTypeId", SUM (quantity) AS quantity FROM user_saved_plastics where "UserId"=${req.session.passport.user.id} GROUP BY "SavedPlasticTypeId"`)
-    .then(results => {
-      console.log(results, "results");  
+    .then(result => {
+      console.log("R E S U L T ", result, "R E S U L T");
+      console.log("result0",result[0], "result0")
+      res.render("straws",{result})  
     })
   }
 
@@ -68,3 +70,4 @@ module.exports.getCupLid = (req, res, next) => {
     res.render("dashboard",{cupLidSum});
   })
 }
+
