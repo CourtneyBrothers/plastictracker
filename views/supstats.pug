@@ -7,12 +7,12 @@ html
     
     
     unless !anonymous
-      h1 you don't have any straws yet!
+      h1 you don't have any SUP stats yet!
 
     
     block content
       h1 what's good?
-      h2 these are your totals for plastics saved
+      h2 these are your totals for SUP consumption
 
   - let resultArray = result[0]
   - console.log(resultArray, "result array")
@@ -21,5 +21,4 @@ html
     a(href=`/saved/${anonymous.SavedPlasticTypeId}`)
       li type id: #{anonymous.SavedPlasticTypeId} quantity: #{anonymous.quantity}
    
-
 
