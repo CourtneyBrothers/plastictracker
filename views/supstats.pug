@@ -18,7 +18,7 @@ html
   - console.log(resultArray, "result array")
   //sequelize query returns array of anonymous obj w/ plastic id and quantity
   each anonymous in resultArray
-    a(href=`/saved/${anonymous.SavedPlasticTypeId}`)
-      li type id: #{anonymous.SavedPlasticTypeId} quantity: #{anonymous.quantity}
+    a(href=`/sup/${anonymous.ReuseThisPlasticId}`)
+      li type id: #{anonymous.ReuseThisPlasticId} quantity: #{anonymous.quantity}
    
 

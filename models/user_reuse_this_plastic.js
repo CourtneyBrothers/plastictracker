@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    quantity: DataTypes.INTEGER,
     singleUse:{
       type: DataTypes.BOOLEAN, 
       allowNull: false, 

@@ -9,10 +9,11 @@ document.getElementById("showRegister").addEventListener('click', () => {
 });
 
 
-document.getElementById("submit").addEventListener('click', () => {
-  location.href = `${location.origin}/savedplastic`
-});
+// document.getElementById("submit").addEventListener('click', () => {
+//   console.log("quantity",document.getElementById("quantity").value)
+//   location.href = `${location.origin}/stats`
+// });
 
-document.getElementById("notSavedSubmit").addEventListener('click', () => {
-  location.href = `${location.origin}/notsavedplastic`
-});
+// document.getElementById("notSavedSubmit").addEventListener('click', () => {
+//   location.href = `${location.origin}/notsavedplastic`
+// });
