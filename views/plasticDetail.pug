@@ -6,13 +6,13 @@ html
     include ./partials/nav.pug
     
     
-    unless sum
+    unless result
       h1 you don't have any stats yet!
 
 
     block content
-      h1 all the #{req.params.id} you've saved!
-        h2 #{sum}
+      h1 all the #{id} you've saved!
+         h2 #{result}
       
     
 
