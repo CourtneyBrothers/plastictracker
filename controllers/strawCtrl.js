@@ -36,8 +36,8 @@ module.exports.countPlastic = (req, res, next) => {
     user_saved_plastic
   } = req.app.get('models');
 
-  let id = +req.body.SavedPlasticTypeId;
-
+  let id = +req.params.id;
+  console.log("id",id);
     user_saved_plastic.count({
       where:{
         UserId: req.session.passport.user.id,
@@ -48,7 +48,7 @@ module.exports.countPlastic = (req, res, next) => {
       console.log("R E S U L T ", typeof result, "R E S U L T");
       // console.log("result0",result[0], "result0")
        
-      res.render("plasticDetail",{id,result})
+      res.render("plasticDetail",{id,result,req})
     })
     .catch(err=>{
       console.log("error in result",err)
