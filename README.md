@@ -44,6 +44,13 @@ serving the app will present a login page.  A dummy user is in json in order for
 
 after login users are presented with a view to select type and quantity of plastic saved 
 
+
+after login users are presented with a view to select type and quantity of plastic saved 
+
+and/or 
+
+users are presented with a view to select type and quantity of SUP consumed
+
 after submission users are presented with totals of each type of plastic saved by id 
 
 **readme last updated 4/3/2018**
