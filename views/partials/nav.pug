@@ -1,0 +1,11 @@
+nav(class="navbar navbar-expand-lg navbar-light bg-light")  
+      if session.passport
+        span #{session.passport.user.username}  
+        -var id = session.passport.user.id
+          div(class="collapse navbar-collapse" id="navbarNavAltMarkup")
+            div(class="navbar-nav")
+              a(class="nav-item nav-link" href="/welcome") home_
+              a(class="nav-item nav-link" href="/savedplastic") dashboard_
+                form(method="POST")
+                  button(type="submit" formaction="/logout") logout
+      

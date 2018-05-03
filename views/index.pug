@@ -4,12 +4,15 @@ html
     title login
     include stylesheets.pug
   body
-    h1 ...this the last straw
+  unless !session.passport
+    include partials/nav.pug
+
+  h1 ...this the last straw
 
   block content
     button#showLogin login
     button#showRegister sign up
 
     script
-      include ../client/client.js
+      include ../client/clientapp/client.js
       

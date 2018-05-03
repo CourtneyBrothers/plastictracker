@@ -1,0 +1,20 @@
+html
+  head
+    title Product Details
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+    
+    unless sum
+      h1 you don't have any straws yet!
+
+    
+    block content
+      h1 your SUP straws
+        h2 #{sum}
+- for (let i = 0; i< sum; i++)
+  li straw    
+
+h1 you've reused and/or rescued
+  h2 #{falseSum}

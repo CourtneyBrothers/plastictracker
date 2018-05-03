@@ -1,0 +1,25 @@
+html
+  head
+    title stats!
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+    
+    unless !anonymous
+      h1 you don't have any straws yet!
+
+    
+    block content
+      h1 what's good?
+      h2 these are your totals for plastics saved
+
+  - let resultArray = result[0]
+  - console.log(resultArray, "result array")
+  //sequelize query returns array of anonymous obj w/ plastic id and quantity
+  each anonymous in resultArray
+    a(href=`/saved/${anonymous.SavedPlasticTypeId}`)
+      li type id: #{anonymous.SavedPlasticTypeId} quantity: #{anonymous.quantity}
+   
+
+
