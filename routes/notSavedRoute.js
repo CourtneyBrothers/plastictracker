@@ -2,9 +2,9 @@
 
 const { Router } = require('express');
 const router = Router();
-const { notSavedSUP } = require('../controllers/notSavedCtrl');
+const { postSUP } = require('../controllers/notSavedCtrl');
 
-router.post('/notsavedplastic', notSavedSUP);
+router.post('/notsavedplastic', postSUP);
 
 
 module.exports = router;
