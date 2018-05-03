@@ -42,7 +42,6 @@ module.exports.countPlastic = (req, res, next) => {
     })
     .then(result => {
       console.log("R E S U L T ", typeof result, "R E S U L T");
-      // console.log("result0",result[0], "result0")
 
       res.render("plasticDetail", {
         id,
@@ -125,3 +124,16 @@ module.exports.countSUP = (req, res, next) => {
 //       })
 //     })
 // }
+
+module.exports.rawCountSaved = (req, res, next) => {
+    const {
+      user_saved_plastic
+    } = req.app.get('models');
+    sequelize.query(`select user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label, COUNT (saved_plastic_types.label) AS quantity FROM user_saved_plastics INNER JOIN saved_plastic_types ON user_saved_plastics."SavedPlasticTypeId"=saved_plastic_types.id WHERE user_saved_plastics."UserId"=1 GROUP BY user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label   `)
+      .then(result => {
+        console.log("result0", result[0], "result0")
+        res.render("supDashboard", {
+          result
+        })
+      })
+  }
