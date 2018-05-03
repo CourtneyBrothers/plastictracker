@@ -13,23 +13,15 @@ module.exports.postStraw = (req, res, next) => {
   reqObj.UserId = req.session.passport.user.id;
   let quantity = +req.body.quantity;
   let id = +req.body.SavedPlasticTypeId;
-
   let promiseArray = [];
-
   for (let i = 0; i < quantity; i++) {
     promiseArray.push(user_saved_plastic.create(reqObj))
   }
-
   Promise.all(promiseArray).then(saved => {
-      resolve("done")
+      res.redirect(`/saved/${id}`)
     })
     .catch(err => {
       console.log(err, "err w iteration")
-    }).then(() => {
-      res.redirect(`/saved/${id}`);
-    })
-    .catch(err => {
-      console.log(err, "error post straw cntrl");
     })
 }
 
