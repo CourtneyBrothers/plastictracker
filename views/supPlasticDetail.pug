@@ -1,0 +1,20 @@
+html
+  head
+    title Product Details
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+    
+
+    unless result
+      h1 you don't have any stats yet!
+
+
+    block content
+      h1 all the SUP #{req.params.id} you've saved!
+        h2 #{result}
+      
+    
+
+
