@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     password: DataTypes.STRING
   }, {tableName: "users", timestamps: false});
   User.associate= (models) => {
+  
   };
 
   return User;

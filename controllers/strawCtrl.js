@@ -1,7 +1,9 @@
 'use strict';
 const passport = require('passport');
 var Sequelize = require('sequelize');
-
+var sequelize = new Sequelize('plastictracker', null, null, {
+  dialect: 'postgres'
+});
 
 module.exports.postStraw = (req, res, next) => {
   const {
@@ -33,7 +35,8 @@ module.exports.postStraw = (req, res, next) => {
 
 module.exports.countPlastic = (req, res, next) => {
   const {
-    user_saved_plastic
+    user_saved_plastic,
+    Saved_Plastic_Type
   } = req.app.get('models');
 
   let id = +req.params.id;
@@ -55,19 +58,19 @@ module.exports.countPlastic = (req, res, next) => {
     })
 }
 //remove sup stats because it relies on quantity which no longer exists
-// module.exports.getSUPstats = (req, res, next) => {
-//   const {
-//     user_reuse_this_plastic
-//   } = req.app.get('models');
-//   sequelize.query(`Select "ReuseThisPlasticId", SUM (quantity) AS quantity FROM user_reuse_this_plastics where "UserId"=${req.session.passport.user.id} GROUP BY "ReuseThisPlasticId"`)
-//     .then(result => {
-//       console.log("R E S U L T ", result, "R E S U L T");
-//       console.log("result0", result[0], "result0")
-//       res.render("supstats", {
-//         result
-//       })
-//     })
-// }
+module.exports.getSUPstats = (req, res, next) => {
+  const {
+    user_reuse_this_plastic
+  } = req.app.get('models');
+  sequelize.query(`Select "ReuseThisPlasticId", count ("ReuseThisPlasticId") AS quantity FROM user_reuse_this_plastics where "UserId"=${req.session.passport.user.id} GROUP BY "ReuseThisPlasticId"`)
+    .then(result => {
+      console.log("R E S U L T ", result, "R E S U L T");
+      console.log("result0", result[0], "result0")
+      res.render("supstats", {
+        result
+      })
+    })
+}
 
 
 // module.exports.getSup = (req, res, next) => {
