@@ -43,10 +43,31 @@ run `node build_db`
 serving the app will present a login page.  A dummy user is in json in order for developers to login w/o re-registering each time
 
 after login users are presented with a view to select type and quantity of plastic saved 
+`http://localhost:8080/welcome`
+
+and 
+
+users are presented with a view to select type and quantity of SUP consumed
 
 after submission users are presented with totals of each type of plastic saved by id 
+if they skipped plastic used the submit button routes to 
+`http://localhost:8080/saved/**id**`
+ex) `http://localhost:8080/saved/2` 
+loads with `cup lid quantity9:`
 
-**readme last updated 4/3/2018**
+if they added to their sup quantity the submit button routes to 
+and `http://localhost:8080/saved/**id**`
+ex) `http://localhost:8080/sup/2`
+loads with `cup lid quantity:10`
+
+`http://localhost:8080/dashboard`
+lists the total quanties of saved plastics for that user 
+ex) 
+`straw quantity:12
+cup lid quantity:9
+other quantity:12`
+
+**readme last updated 4/4/2018**
 
 
 

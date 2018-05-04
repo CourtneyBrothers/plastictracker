@@ -11,8 +11,11 @@ html
 
 
     block content
-      h1 all the #{req.params.id} you've saved!
-        h2 #{result}
+      - let resultArray = result[0]
+  - console.log(resultArray, "result array")
+  //sequelize query returns array of anonymous obj w/ plastic id and quantity
+  each anonymous in resultArray
+      li #{anonymous.label} quantity:#{anonymous.quantity}
       
     
 
