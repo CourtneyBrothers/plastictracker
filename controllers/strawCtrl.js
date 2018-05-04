@@ -94,34 +94,44 @@ module.exports.groupPlasticCount = (req, res, next) => {
     })
 }
 
-module.exports.countSUP = (req, res, next) => {
-  const {
-    user_reuse_this_plastic,
-    Reuse_This_Plastic
-  } = req.app.get('models');
-
-  let id = +req.params.id;
-  console.log("id", id);
-  user_reuse_this_plastic.count({
-      where: {
-        UserId: req.session.passport.user.id,
-        ReuseThisPlasticId: req.params.id
-      }
+module.exports.countSUP = (req,res,next)=>{
+  sequelize.query(`SELECT user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label, COUNT (reuse_this_plastic_type.label) AS quantity FROM user_reuse_this_plastics INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastics."ReuseThisPlasticId"=reuse_this_plastic_type.id WHERE user_reuse_this_plastics."UserId"=${req.session.passport.user.id} AND user_reuse_this_plastics."ReuseThisPlasticId"=${req.params.id} GROUP BY user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label`)
+  .then(result => {
+    console.log("result0", result[0], "result0")
+    res.render("plasticDetail", {
+      result
     })
-    .then(result => {
-      console.log("R E S U L T ", typeof result, "R E S U L T");
-      // console.log("result0",result[0], "result0")
-
-      res.render("supPlasticDetail", {
-        id,
-        result,
-        req
-      })
-    })
-    .catch(err => {
-      console.log("error in result", err)
-    })
+  })
 }
+
+// module.exports.countSUP = (req, res, next) => {
+//   const {
+//     user_reuse_this_plastic,
+//     Reuse_This_Plastic
+//   } = req.app.get('models');
+
+//   let id = +req.params.id;
+//   console.log("id", id);
+//   user_reuse_this_plastic.count({
+//       where: {
+//         UserId: req.session.passport.user.id,
+//         ReuseThisPlasticId: req.params.id
+//       }
+//     })
+//     .then(result => {
+//       console.log("R E S U L T ", typeof result, "R E S U L T");
+//       // console.log("result0",result[0], "result0")
+
+//       res.render("supPlasticDetail", {
+//         id,
+//         result,
+//         req
+//       })
+//     })
+//     .catch(err => {
+//       console.log("error in result", err)
+//     })
+// }
 //remove sup stats because it relies on quantity which no longer exists
 // module.exports.getSUPstats = (req, res, next) => {
 //   const {
