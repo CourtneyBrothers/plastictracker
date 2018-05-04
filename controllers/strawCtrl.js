@@ -26,32 +26,44 @@ module.exports.postStraw = (req, res, next) => {
 }
 
 
+//count w/ sqlize method not returning label
+
+// module.exports.countPlastic = (req, res, next) => {
+//   const {
+//     user_saved_plastic,
+//     Saved_Plastic_Type
+//   } = req.app.get('models');
+
+//   let id = +req.params.id;
+//   console.log("id", id);
+//   user_saved_plastic.count({
+//       where: {
+//         UserId: req.session.passport.user.id,
+//         SavedPlasticTypeId: req.params.id
+//       }
+//     })
+//     .then(result => {
+//       console.log("R E S U L T ", typeof result, "R E S U L T");
+
+//       res.render("plasticDetail", {
+//         id,
+//         result,
+//         req
+//       })
+//     })
+//     .catch(err => {
+//       console.log("error in result", err)
+//     })
+// }
 module.exports.countPlastic = (req, res, next) => {
-  const {
-    user_saved_plastic,
-    Saved_Plastic_Type
-  } = req.app.get('models');
 
-  let id = +req.params.id;
-  console.log("id", id);
-  user_saved_plastic.count({
-      where: {
-        UserId: req.session.passport.user.id,
-        SavedPlasticTypeId: req.params.id
-      }
+  sequelize.query(`SELECT user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label, COUNT (saved_plastic_types.label) AS quantity FROM user_saved_plastics INNER JOIN saved_plastic_types ON user_saved_plastics."SavedPlasticTypeId"=saved_plastic_types.id WHERE user_saved_plastics."UserId"=${req.session.passport.user.id} AND user_saved_plastics."SavedPlasticTypeId"=${req.params.id} GROUP BY user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label`)
+  .then(result => {
+    console.log("result0", result[0], "result0")
+    res.render("plasticDetail", {
+      result
     })
-    .then(result => {
-      console.log("R E S U L T ", typeof result, "R E S U L T");
-
-      res.render("plasticDetail", {
-        id,
-        result,
-        req
-      })
-    })
-    .catch(err => {
-      console.log("error in result", err)
-    })
+  })
 }
 
 module.exports.groupPlasticCount = (req, res, next) => {
@@ -132,8 +144,9 @@ module.exports.rawCountSaved = (req, res, next) => {
     sequelize.query(`select user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label, COUNT (saved_plastic_types.label) AS quantity FROM user_saved_plastics INNER JOIN saved_plastic_types ON user_saved_plastics."SavedPlasticTypeId"=saved_plastic_types.id WHERE user_saved_plastics."UserId"=1 GROUP BY user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label   `)
       .then(result => {
         console.log("result0", result[0], "result0")
-        res.render("supDashboard", {
+        res.render("dashboard", {
           result
         })
       })
   }
+
