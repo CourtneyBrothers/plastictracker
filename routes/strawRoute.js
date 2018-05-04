@@ -12,7 +12,6 @@ function isLoggedIn(req, res, next) {
 
 router.post('/savedplastic', postStraw, isLoggedIn);
 router.get('/saved/:id',countPlastic, isLoggedIn);
-// router.get('/stats');
 router.get('/dashboard', rawCountSaved);
 router.get('/sup/:id',countSUP,isLoggedIn);
 module.exports = router;
