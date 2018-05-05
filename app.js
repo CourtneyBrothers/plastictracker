@@ -5,6 +5,7 @@ const app = express();
 const passport = require('passport')
 var session = require('express-session');
 let bodyParser = require('body-parser');
+const path = require('path'); 
 // flash depend on session module to set temp values that persist briefly so we can set a value, kick off a new request, then have that value accessible on the request
 const flash = require('express-flash');
 
@@ -28,6 +29,9 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 })); // session secret
+
+
+app.use(express.static('public/images'));
 
 app.use(
   "/bootstrap",

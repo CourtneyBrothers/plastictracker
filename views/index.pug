@@ -3,11 +3,16 @@ html
   head
     title login
     include stylesheets.pug
-  body
+      style
+        include main.scss
+  body(class="text-center")
   unless !session.passport
     include partials/nav.pug
 
   h1 ...this the last straw
+
+ 
+  
 
   block content
     button#showLogin login
