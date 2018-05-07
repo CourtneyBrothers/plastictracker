@@ -67,7 +67,10 @@ ex)
 cup lid quantity:9
 other quantity:12`
 
-**readme last updated 4/4/2018**
+`http://localhost:8080/overboard` OR by selecting overboard link in nav bar will list the total for all saved plastic among all users of the app
+
+
+**readme last updated 4/7/2018**
 
 
 

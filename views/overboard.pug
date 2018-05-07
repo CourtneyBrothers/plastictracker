@@ -15,7 +15,7 @@ html
     block content
 
     for anonymous in result[0]
-      h1 all the plastic saved!!! #{anonymous.count}
+      h1(id="#{anonymous.count}") all the plastic saved!!! #{anonymous.count}
       .container-fluid
         img(src="whale.svg")
 
