@@ -2,14 +2,14 @@ extends index.pug
 
 block content
   p.lead
-      h1(class="h3 mb-3") login
+      h1(class="h3 mb-3" class="login-heading") login
       if message
         h2= message
       .container
         div(class="row justify-content-md-center")
           form(action="/login", method="post" class="form-signin")
-            input(type="text" placeholder="username" name="username" class="form-control" )
-            input(type="email" placeholder="email" name="email" class="form-control" )
-            input(type="password" placeholder="password" name="password" class="form-control" )
-            button(type="submit") login
+            input(type="text" placeholder="username" name="username" class="form-control" class="clear-input" )
+            input(type="email" placeholder="email" name="email" class="form-control" class="clear-input" )
+            input(type="password" placeholder="password" name="password" class="form-control" class="clear-input" )
+            button(type="submit" class="btn btn-outline-info btn-lg" class="landing-btn") login
 
