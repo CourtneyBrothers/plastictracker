@@ -31,7 +31,7 @@ app.use(session({
 })); // session secret
 
 
-app.use(express.static('public/images'));
+app.use('/public', express.static(__dirname + "/public"));
 
 app.use(
   "/bootstrap",

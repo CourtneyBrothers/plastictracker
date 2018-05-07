@@ -6,17 +6,16 @@ html
       style
         include main.scss
   body(class="text-center")
-  unless !session.passport
-    include partials/nav.pug
-
-  h1 ...this the last straw
-
- 
-  
-
-  block content
-    button#showLogin login
-    button#showRegister sign up
+    div(class="cover-container d-flex h-100 p-3 mx-auto flex-column")
+      main(role="main" class="inner-cover")
+        h1(class="h1 mb-3 font-weight-normal") ...this the last straw
+        
+        p.lead
+          block content 
+            p.lead
+              button#showLogin(class="btn btn-lg btn-secondary") login
+            p.lead
+              button#showRegister(class="btn btn-lg btn-secondary") sign up
 
     script
       include ../client/clientapp/client.js
