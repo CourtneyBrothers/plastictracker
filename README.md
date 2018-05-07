@@ -3,7 +3,7 @@
 ## THIS IS THE LAST STRAW (hopefully)
 ## Full stack web app built on SNEP stack! AKA sequelize node express pug
 
-#Track your consumption of single use plastic 
+# Track your consumption of single use plastic 
 
 # Start here to initilizate the project
 
@@ -17,7 +17,7 @@ to access all required dependencies
 `npm install`
 
 
-#how to build database and connect to postgres
+# how to build database and connect to postgres
   **once your project is initiliazed as above**
 1. Open in your terminal run `psql` 
 
@@ -67,7 +67,10 @@ ex)
 cup lid quantity:9
 other quantity:12`
 
-**readme last updated 4/4/2018**
+`http://localhost:8080/overboard` OR by selecting overboard link in nav bar will list the total for all saved plastic among all users of the app
+
+
+**readme last updated 4/7/2018**
 
 
 

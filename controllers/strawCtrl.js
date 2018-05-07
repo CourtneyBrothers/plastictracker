@@ -51,7 +51,7 @@ module.exports.rawCountSaved = (req, res, next) => {
     const {
       user_saved_plastic
     } = req.app.get('models');
-    sequelize.query(`select user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label, COUNT (saved_plastic_types.label) AS quantity FROM user_saved_plastics INNER JOIN saved_plastic_types ON user_saved_plastics."SavedPlasticTypeId"=saved_plastic_types.id WHERE user_saved_plastics."UserId"=1 GROUP BY user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label   `)
+    sequelize.query(`select user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label, COUNT (saved_plastic_types.label) AS quantity FROM user_saved_plastics INNER JOIN saved_plastic_types ON user_saved_plastics."SavedPlasticTypeId"=saved_plastic_types.id WHERE user_saved_plastics."UserId"=${req.session.passport.user.id} GROUP BY user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label   `)
       .then(result => {
         console.log("result0", result[0], "result0")
         res.render("dashboard", {
@@ -60,3 +60,13 @@ module.exports.rawCountSaved = (req, res, next) => {
       })
   }
 
+
+  module.exports.getAllPlastic = (req, res,next)=>{
+    sequelize.query(`select count(*) from user_saved_plastics`)
+    .then(result => {
+      console.log("result0", result[0], "result0")
+      res.render("overboard", {
+        result
+      })
+    })
+  }

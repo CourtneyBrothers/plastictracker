@@ -1,0 +1,35 @@
+html
+  head
+    title Profile
+    include stylesheets.pug
+  body
+    include ./partials/nav.pug
+    
+    h1 user information
+      h2 what do you want to save?
+      form(action="/oceanCreature" method="POST")
+        label(for="oceanCreatureTypeId")  Plastic Type
+        select(name="SavedPlasticTypeId" placeholder="Select Plastic Type" required)
+          option(value="") None
+          option(value="1") whale
+          option(value="2") turtle
+          option(value="3") dolpin
+          option(value="4") albatross
+          option(value="5") anchovy
+          option(value="6") coral reef
+          option(value="7") shark
+          option(value="8") Plastic Wrap 
+
+
+    input.text(id="first_name" name="first_name" type="text")
+    button#updateName
+    input.text(name="last_name" type="text")
+    button#updateLastName
+    input.text(name="username" type="text")
+    button#updateUsername
+    input.text(name="email" type="text")
+    button#updateEmail
+    input(name="password" type="password")
+    button#updatePassword
+
+

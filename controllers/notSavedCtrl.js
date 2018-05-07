@@ -5,7 +5,7 @@ var sequelize = new Sequelize('plastictracker', null, null, {
   dialect: 'postgres'
 });
 
-module.exports.postSUP= (req, res, next) => {
+module.exports.postSUP = (req,res,next) => {
   const {
     user_reuse_this_plastic
   } = req.app.get('models');
@@ -13,22 +13,26 @@ module.exports.postSUP= (req, res, next) => {
   reqObj.UserId = req.session.passport.user.id;
   let quantity = +req.body.quantity;
   let id = +req.body.ReuseThisPlasticId;
-  return new Promise((resolve,reject) => {
-    //post plastic type from quantity input 
-      for (let i = 0; i < quantity; i++) {
-        user_reuse_this_plastic.create(reqObj)
-          .then(saved => {
-            resolve("done")
-          })
-          .catch(err => {
-            console.log("error w iteration");
-          })
-      }
-    }).then(() => {
-      res.redirect(`/sup/${id}`);
+  let promiseArray = [];
+  for (let i = 0; i < quantity; i++) {
+    promiseArray.push(user_reuse_this_plastic.create(reqObj))
+  }
+  Promise.all(promiseArray).then(saved => {
+      res.redirect(`/sup/${id}`)
     })
     .catch(err => {
-      console.log(err, "error post straw cntrl");
+      console.log(err, "err w iteration")
     })
 }
 
+
+module.exports.getAllReusePlastic = (req, res,next)=>{
+  sequelize.query(`SELECT user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label, COUNT (reuse_this_plastic_type.label) AS quantity FROM user_reuse_this_plastics INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastics."ReuseThisPlasticId"=reuse_this_plastic_type.id GROUP BY user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label
+  `)
+  .then(result => {
+    console.log("result0", result[0], "result0")
+    res.render("overboard", {
+      result
+    })
+  })
+}

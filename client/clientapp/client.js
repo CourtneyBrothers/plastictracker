@@ -7,13 +7,3 @@ document.getElementById("showLogin").addEventListener('click', () => {
 document.getElementById("showRegister").addEventListener('click', () => {
   location.href = `${location.origin}/register`;
 });
-
-
-// document.getElementById("submit").addEventListener('click', () => {
-//   console.log("quantity",document.getElementById("quantity").value)
-//   location.href = `${location.origin}/stats`
-// });
-
-// document.getElementById("notSavedSubmit").addEventListener('click', () => {
-//   location.href = `${location.origin}/notsavedplastic`
-// });

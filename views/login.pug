@@ -1,13 +1,15 @@
 extends index.pug
 
 block content
-  h1 login
-  if message
-    h2= message
-
-  form(action="/login", method="post")
-    input(type="text" placeholder="username" name="username")
-    input(type="email" placeholder="email" name="email")
-    input(type="password" placeholder="password" name="password")
-    button(type="submit") login
+  p.lead
+      h1(class="h3 mb-3" class="login-heading") login
+      if message
+        h2= message
+      .container
+        div(class="row justify-content-md-center")
+          form(action="/login", method="post" class="form-signin")
+            input(type="text" placeholder="username" name="username" class="form-control" class="clear-input" )
+            input(type="email" placeholder="email" name="email" class="form-control" class="clear-input" )
+            input(type="password" placeholder="password" name="password" class="form-control" class="clear-input" )
+            button(type="submit" class="btn btn-outline-info btn-lg" class="landing-btn") login
 

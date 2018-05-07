@@ -1,0 +1,23 @@
+html
+  head
+    title Product Details
+    include stylesheets.pug
+      style
+        include main.scss
+  body
+    include ./partials/nav.pug
+    
+    
+    unless result
+      h1 uh oh we went overboard! 
+
+
+    block content
+
+    for anonymous in result[0]
+      h1(id="#{anonymous.count}") all the plastic that hasnt gone overboard! #{anonymous.count}
+      .container-fluid
+        img(src="/public/images/whale.svg")
+
+      
+    
