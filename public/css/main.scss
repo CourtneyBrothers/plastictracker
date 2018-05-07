@@ -1,0 +1,41 @@
+
+
+//landing page styles
+
+.landing {
+  background: url("/images/279864-P621DZ-927.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.landing-heading{
+  color: white;
+  font-size: 12rem;
+}
+
+
+.landing-btn{
+  color:white;
+}
+
+
+//login styles
+
+.login-heading{
+  color:white;
+}
+
+.clear-input{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #999;
+}
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px white inset;
+    -webkit-text-fill-color: #999;
+}
