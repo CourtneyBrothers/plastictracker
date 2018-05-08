@@ -14,9 +14,12 @@ html
     block content
 
     for anonymous in result[0]
+      -let count = +`${anonymous.count}`
+      -let countArray = new Array(count).fill('wave')
       h1(id="#{anonymous.count}") all the plastic that hasnt gone overboard! #{anonymous.count}
       .container-fluid
         img(src="/images/whale.svg")
 
-      
+      each wave in countArray
+        img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="wave-it")
     
