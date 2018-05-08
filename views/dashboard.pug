@@ -3,9 +3,13 @@ html
     title stats!
     include stylesheets.pug
   
-  body
+  body(class="text-center")
   include ./partials/nav.pug
-
+  div(class="row featurette")
+    div(class="col-md-7")
+      h2(class="featurette-heading") What's good? This is what you've logged as saved
+  
+      h2(class="text-muted") #MY 700 = #{sum}
   main(role="main")
     div(class="container marketing")
       - let resultArray = result[0]
@@ -14,6 +18,8 @@ html
           div(class="col-lg-4")
             h2 #{anonymous.label} 
             p quantity:#{anonymous.quantity}
+            img(src="images/wave.svg" class="rounded-circle")
+           
 
 
 
