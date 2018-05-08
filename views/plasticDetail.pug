@@ -17,8 +17,11 @@ html
   each anonymous in resultArray
       h1 #{anonymous.label} quantity:#{anonymous.quantity}
       - let quantity = +`${anonymous.quantity}`
-      - console.log("quantity",quantity)
-      
+      -let quantArray = new Array(quantity).fill('plastic')
+      each plastic in quantArray
+        img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="wave-it")
+
+
         
 
 
