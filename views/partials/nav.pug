@@ -4,10 +4,11 @@ nav(class="navbar navbar-expand-lg navbar-light bg-light")
         -var id = session.passport.user.id
           div(class="collapse navbar-collapse" id="navbarNavAltMarkup")
             div(class="navbar-nav")
-              a(class="nav-item nav-link" href="/welcome") home
-              a(class="nav-item nav-link" href="/profile") profile
-              a(class="nav-item nav-link" href="/overboard") overboard
-              a(class="nav-item nav-link" href="/dashboard") dashboard
-                form(method="POST")
-                  button(type="submit" formaction="/logout") logout
+              a(class="nav-item nav-link" class="nav-click" href="/welcome" ) home
+              a(class="nav-item nav-link" class="nav-click" href="/profile") profile
+              a(class="nav-item nav-link" class="nav-click" href="/overboard") overboard
+              a(class="nav-item nav-link" class="nav-click" href="/dashboard") dashboard
+              a(class="nav-item nav-link" class="nav-click" href="/") about
+              form(method="POST")
+                button(type="submit" formaction="/logout" class="btn btn-outline-info btn-lg") logout
       

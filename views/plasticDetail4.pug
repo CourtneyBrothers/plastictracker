@@ -15,9 +15,12 @@ html
   - console.log(resultArray, "result array")
   //sequelize query returns array of anonymous obj w/ plastic id and quantity
   each anonymous in resultArray
-      li #{anonymous.label} quantity:#{anonymous.quantity}
-      
-    
+      h1 #{anonymous.label} quantity:#{anonymous.quantity}
+      - let quantity = +`${anonymous.quantity}`
+      -let quantArray = new Array(quantity).fill('plastic')
+      each plastic in quantArray
+        img(src="/images/ecologism.svg" class="rounded-circle" width="140" height="140" class="wave-it")
+
 
         
 
