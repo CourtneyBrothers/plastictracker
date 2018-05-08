@@ -30,7 +30,7 @@ module.exports.countPlastic = (req, res, next) => {
   sequelize.query(`SELECT user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label, COUNT (saved_plastic_types.label) AS quantity FROM user_saved_plastics INNER JOIN saved_plastic_types ON user_saved_plastics."SavedPlasticTypeId"=saved_plastic_types.id WHERE user_saved_plastics."UserId"=${req.session.passport.user.id} AND user_saved_plastics."SavedPlasticTypeId"=${req.params.id} GROUP BY user_saved_plastics."SavedPlasticTypeId",saved_plastic_types.label`)
   .then(result => {
     console.log("result0", result[0], "result0")
-    res.render("plasticDetail", {
+    res.render(`plasticDetail${req.params.id}`, {
       result
     })
   })
