@@ -2,23 +2,18 @@ html
   head
     title stats!
     include stylesheets.pug
+  
   body
-    include ./partials/nav.pug
-    
-    
-    unless !anonymous
-      h1 you don't have any straws yet!
+  include ./partials/nav.pug
 
-    
-    block content
-      h1 what's good?
-      h2 these are your totals for plastics saved
+  main(role="main")
+    div(class="container marketing")
+      - let resultArray = result[0]
+      div(class="row")
+        each anonymous in resultArray
+          div(class="col-lg-4")
+            h2 #{anonymous.label} 
+            p quantity:#{anonymous.quantity}
 
-  - let resultArray = result[0]
-  - console.log(resultArray, "result array")
-  //sequelize query returns array of anonymous obj w/ plastic id and quantity
-  each anonymous in resultArray
-      li #{anonymous.label} quantity:#{anonymous.quantity}
-      
 
 

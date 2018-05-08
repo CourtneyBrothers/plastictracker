@@ -4,11 +4,11 @@ html
     title Product Details
     include stylesheets.pug
 
-  body
+  body(class="text-center")
     include ./partials/nav.pug
   block content
     main(role="main")
-      div(class="container-marketing")
+      div(class="container marketing")
         .welcome-text
           if messages.registerMsg
             h1(class="jumbotron-heading")= messages.registerMsg
@@ -22,9 +22,10 @@ html
             h1 please log in first!
 
           unless !session.passport
-            div(class="row featurette")
-                h1(class="featurette-heading") What did you save?
-                  span(class="text-muted") Fill out this form every time you make a decision to not use a plastic bag or cup or straw (check out the drop down for more options)
+            div(class="row justify-content-center")
+              div(class="col-md-10")
+                h1(class="featurette-heading" class="welcome-heading") What did you save?
+                  span(class="welcome-subheading") Fill out this form every time you make a decision to not use a plastic bag or cup or straw (check out the drop down for more options)
                   form(action="/savedplastic" method="POST")
                     label(for="SavedPlasticTypeId")  Plastic Type
                     select(name="SavedPlasticTypeId" placeholder="Select Plastic Type" required)
@@ -40,24 +41,26 @@ html
                     label(for="quantity") Quantity: 
                     input.text(id="quantity" name="quantity" type="number" required="required")
                     input.btn(type="submit" value="Submit" id="submit")
-            
-                //- h1 Single Use Plastic Station?
-                //- h2 fill out the form to keep track of your consumption of single use plastic, you can still keep it out of the waste stream by reusing it!
+              
+              //- div(class="row")
+              //-   div()
+              //-   h1 Single Use Plastic Station?
+              //-   h2 fill out the form to keep track of your consumption of single use plastic, you can still keep it out of the waste stream by reusing it!
           
               
-                //- form(action="/notsavedplastic" method="POST")
-                //-   label(for="ReuseThisPlasticId")  Plastic Type
-                //-   select(name="ReuseThisPlasticId" placeholder="Select Plastic Type" required)
-                //-     option(value="") None
-                //-     option(value="1") Straw
-                //-     option(value="2") Cup Lid
-                //-     option(value="3") Bottle
-                //-     option(value="4") Bag
-                //-     option(value="5") Jar
-                //-     option(value="6") Box
-                //-     option(value="7") Other
-                //-     option(value="8") Plastic Wrap
-                //-   label(for="quantity") Quantity: 
-                //-   input.text(id="quantity" name="quantity" type="number" required="required")
-                //-   input.btn(type="submit" value="Submit" id="notSavedSubmit")
+              //-   form(action="/notsavedplastic" method="POST")
+              //-     label(for="ReuseThisPlasticId")  Plastic Type
+              //-     select(name="ReuseThisPlasticId" placeholder="Select Plastic Type" required)
+              //-       option(value="") None
+              //-       option(value="1") Straw
+              //-       option(value="2") Cup Lid
+              //-       option(value="3") Bottle
+              //-       option(value="4") Bag
+              //-       option(value="5") Jar
+              //-       option(value="6") Box
+              //-       option(value="7") Other
+              //-       option(value="8") Plastic Wrap
+              //-     label(for="quantity") Quantity: 
+              //-     input.text(id="quantity" name="quantity" type="number" required="required")
+              //-     input.btn(type="submit" value="Submit" id="notSavedSubmit")
 

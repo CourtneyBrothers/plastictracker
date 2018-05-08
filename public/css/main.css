@@ -26,3 +26,10 @@ input:-webkit-autofill {
 input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 50px white inset;
   -webkit-text-fill-color: #999; }
+
+.welcome-heading {
+  font-size: 2rem;
+  color: #51ced0; }
+
+.welcome-subheading {
+  color: #1c6b6c; }
