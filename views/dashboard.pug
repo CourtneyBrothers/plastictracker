@@ -3,8 +3,12 @@ html
     title stats!
     include stylesheets.pug
   
-  body(class="text-center")
+  body(class="text-center" class="detail-body")
   include ./partials/nav.pug
+  div(role="main")
+    div(class="jumbotron")
+      div(class="container")
+        h1(class="display-3") This plastic aint going overboard!
   div(class="row featurette")
     div(class="col-md-7")
       h2(class="featurette-heading") What's good? This is what you've logged as saved
