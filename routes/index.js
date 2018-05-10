@@ -12,6 +12,7 @@ router.get('/', (req, res, next) => {
 router.use(require('./authRoute'));
 router.use(require('./strawRoute'));
 router.use(require('./notSavedRoute'));
+router.use(require('./profileRoute'))
 
 // router.use(require('./foo'));
 

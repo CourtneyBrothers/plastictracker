@@ -5,7 +5,7 @@ html
   body
     include ./partials/nav.pug
     
-    h1 user information
+    h1 Hi! #{user.first_name} 
       h2 what do you want to save?
       form(action="/oceanCreature" method="POST")
         label(for="oceanCreatureTypeId")  Plastic Type
@@ -20,16 +20,16 @@ html
           option(value="7") shark
           option(value="8") Plastic Wrap 
 
-
+    h2 update your profile info 
     input.text(id="first_name" name="first_name" type="text")
-    button#updateName
+    button#updateName submit
     input.text(name="last_name" type="text")
-    button#updateLastName
+    button#updateLastName submit
     input.text(name="username" type="text")
-    button#updateUsername
+    button#updateUsername submit
     input.text(name="email" type="text")
-    button#updateEmail
+    button#updateEmail submit
     input(name="password" type="password")
-    button#updatePassword
+    button#updatePassword submit
 
 
