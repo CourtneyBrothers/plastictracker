@@ -35,7 +35,10 @@ in the command line you will see "You are now connected to the database"
 
 run `node build_db`
 
-6. To run the app 
+6. To compile your sass 
+`npm run sass` will need to be running 
+
+7. To run the app 
 
 `nodemon app.js` **recommmended** 
 ** note `npm install -g nodemon` assumed but with no global install add nodemon to your dependencies `npm install --save-dev nodemon`
@@ -70,7 +73,7 @@ other quantity:12`
 `http://localhost:8080/overboard` OR by selecting overboard link in nav bar will list the total for all saved plastic among all users of the app
 
 
-**readme last updated 4/7/2018**
+**readme last updated 4/9/2018**
 
 
 
