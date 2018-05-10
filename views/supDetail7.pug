@@ -1,0 +1,26 @@
+html
+  head
+    title Product Details
+    include stylesheets.pug
+  body(class="detail-body")
+    include ./partials/nav.pug
+    
+    
+    unless result
+      h1 you don't have any stats yet!
+
+
+    block content
+      - let resultArray = result[0]
+  - console.log(resultArray, "result array")
+  //sequelize query returns array of anonymous obj w/ plastic id and quantity
+  each anonymous in resultArray
+      h1 #{anonymous.label} total saved quantity:#{anonymous.quantity}
+      - let quantity = +`${anonymous.quantity}`
+      -let quantArray = new Array(quantity).fill('plastic')
+      each plastic in quantArray
+        img(src="/images/sweater.svg" class="rounded-circle" width="140" height="140" class="wave-it")
+
+
+        
+

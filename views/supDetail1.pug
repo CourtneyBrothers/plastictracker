@@ -12,7 +12,7 @@ html
                    
       - let resultArray = result[0]
         each anonymous in resultArray
-            h1(class="display-2 font-weight-bold") total saved #{anonymous.label} quantity:#{anonymous.quantity}
+            h1(class="display-2 font-weight-bold") Your waste stream #{anonymous.label} quantity:#{anonymous.quantity}
             - let quantity = +`${anonymous.quantity}`
             -let quantArray = new Array(quantity).fill('plastic')
             each plastic in quantArray
@@ -20,4 +20,3 @@ html
 
 
         
-
