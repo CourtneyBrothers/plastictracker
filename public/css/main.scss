@@ -1,3 +1,5 @@
+
+
 //STYLES in order are as follows
 
 //1.landing page styles line 7-23
@@ -32,7 +34,7 @@
 }
 
 .clear-input{
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.001);
 }
 
 input:-webkit-autofill {
@@ -63,4 +65,27 @@ input:-webkit-autofill:focus {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+//sup detail
+.reuse{
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+
+.reuseThis{
+  display:none;
+}
+
+.helper-trigger,
+.helper-show {
+  display: none;
+}
+.helper-trigger[type="checkbox"]:checked {
+  & + .helper-show {
+    display: block;
+    & + .helper-hide {
+      display: none;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 html
   head
-    title you rock!
+    title you rock
     include stylesheets.pug
   body(class="detail-body")
     include ./partials/nav.pug
@@ -14,7 +14,7 @@ html
       - let resultArray = result[0]
   - console.log(resultArray, "result array")
   //sequelize query returns array of anonymous obj w/ plastic id and quantity
-  each anonymous in resultArray
+  each anonymous, index in resultArray
       h1 #{anonymous.label} total saved quantity:#{anonymous.quantity}
       - let quantity = +`${anonymous.quantity}`
       -let quantArray = new Array(quantity).fill('plastic')

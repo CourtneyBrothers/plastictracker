@@ -18,6 +18,13 @@ html
       h1 #{anonymous.label} total saved quantity:#{anonymous.quantity}
       - let quantity = +`${anonymous.quantity}`
       -let quantArray = new Array(quantity).fill('plastic')
-      each plastic in quantArray
-        img(src="/images/ecologism.svg" class="rounded-circle" width="140" height="140" class="wave-it")
+      div(class="row")
+        each plastic, index in quantArray
+          div(class="card" class="reuse" style="width: 10rem;")
+            img(src="/images/ecologism.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${index}`)
+            div(class="card-body")
+            button(class="reuse" class="reuseBtn" id=`${index}`) reuse!
 
+script 
+  include ../node_modules/jquery/dist/jquery.min.js
+  include ../client/clientapp/sup.js
