@@ -6,27 +6,34 @@ html
   body(class="text-center" class="detail-body")
   include ./partials/nav.pug
   div(role="main")
-    div(class="jumbotron")
+    div(class="jumbotron" class="my700")
       div(class="container")
-        h1(class="display-3") This plastic aint going overboard!
+        h1(class="display-1 h1 mb-3 font-weight-bold") My 700!
+        h1(class="display-1 h1 mb-3 font-weight-bold") 
   div(class="row featurette")
     div(class="col-md-7")
-      h2(class="featurette-heading") What's good? This is what you've logged as saved
-  
-      h2(class="text-muted") #MY 700 = #{sum}
+      h2(class="featurette-heading") What's good? This is what you've logged as saved 
   main(role="main")
     div(class="container marketing")
       - let resultArray = result[0]
+      - let quantArray =[]
       div(class="row")
         each anonymous in resultArray
           div(class="col-lg-4")
             h2 #{anonymous.label} 
             p quantity:#{anonymous.quantity}
+            - quantArray.push(+anonymous.quantity)
             img(src="images/wave.svg" class="rounded-circle" width="140" height="140" class="wave-it")
             p
               a(class="btn btn-outline-info btn-lg" href=`saved/${anonymous.SavedPlasticTypeId}` role="button") stats 
+        -console.log(quantArray,"quanty")
+        - let sum = 700 -quantArray.reduce((total,amount) => total + amount)
+        -console.log (sum,"sum")
+      div(class="jumbotron" class="my700")
+        div(class="container")
+          h1(class="display-1 h1 mb-3 font-weight-bold") My 700!
+            h1(class="display-1 h1 mb-3 font-weight-bold" id="my700") #{sum}
 
-           
 
 
 
