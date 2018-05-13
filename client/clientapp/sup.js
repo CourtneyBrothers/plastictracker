@@ -8,6 +8,11 @@ Array.from(reuseBtns).forEach((btn) => {
       console.log(e, "event")
       console.log((e.target.id), "id");
       document.getElementById(`sup${e.target.id}`).src="/images/wave.svg";
+      $.ajax({
+        url:`${location.origin}/cart/${id}`,
+        type:'post',
+        data:{}
+      }) 
     }
   )
 });

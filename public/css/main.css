@@ -42,5 +42,13 @@ input:-webkit-autofill:focus {
   background-size: cover; }
 
 .reuse {
-  background-color: rgba(0, 0, 0, 0.01);
-  border-color: rgba(0, 0, 0, 0.01); }
+  background-color: rgba(0, 0, 0, 0.01); }
+
+.reuseThis {
+  display: none; }
+
+.my700 {
+  background-color: rgba(0, 0, 0, 0.001); }
+
+.info1 {
+  background-color: rgba(235, 225, 225, 0.5); }

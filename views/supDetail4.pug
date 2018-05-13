@@ -9,15 +9,16 @@ html
     unless result
       h1 you don't have any stats yet!
 
-
+  
     block content
       - let resultArray = result[0]
-  - console.log(resultArray, "result array")
+      - console.log(resultArray, "result array")
+      - console.log(session.passport, "session.passport")
   //sequelize query returns array of anonymous obj w/ plastic id and quantity
   each anonymous in resultArray
       div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
         h1(class="display-4") #{anonymous.label} total saved quantity:#{anonymous.quantity}
-        p(class="lead") TODO FILL IN THIS W/ UX INFO
+        p(class="lead") TODO FILL IN THIS W/ UX 
         - let quantity = +`${anonymous.quantity}`
         -let quantArray = new Array(quantity).fill('plastic')
         .container
