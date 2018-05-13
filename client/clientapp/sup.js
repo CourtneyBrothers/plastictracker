@@ -18,7 +18,7 @@ Array.from(recycleBtns).forEach((btn) => {
   btn.addEventListener('click', (e) => {
       console.log(e, "event")
       console.log((e.target.id), "id");
-      document.getElementById(`sup${e.target.id}`).src="/images/002-water.svg";
+      document.getElementById(`sup${e.target.id}`).src="/images/recycle-bin.svg";
     }
   )
 });

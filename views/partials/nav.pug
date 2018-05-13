@@ -9,6 +9,7 @@ nav(class="navbar navbar-expand-sm navbar-light bg-light")
               a(class="nav-item nav-link" class="nav-click" href="/overboard") overboard
               a(class="nav-item nav-link" class="nav-click" href="/dashboard") dashboard
               a(class="nav-item nav-link" class="nav-click" href="/") about ocean plastic
+              unless session.passport
               form(method="POST")
                 button(type="submit" formaction="/logout" class="btn btn-outline-info btn-lg") logout
       
