@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     singleUse:{
-      type: DataTypes.BOOLEAN, 
+      type: DataTypes.INTEGER, 
       allowNull: false, 
-      defaultValue: true
+      defaultValue: 0
     }
   }, {timestamps:true});
 
