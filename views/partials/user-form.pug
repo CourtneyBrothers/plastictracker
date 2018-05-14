@@ -1,16 +1,18 @@
-form(class="form-signin" name="signin" method="post" action="/register")
-  label(for="first_name" class="sr-only") First name
-  input.text(id="first_name" name="first_name" type="text" class="form-control")
-  label(for="last_name" class="sr-only") Last name
-  input.text(name="last_name" type="text" class="form-control")
-  label(for="username" class="sr-only") Username
-  input.text(name="username" type="text" class="form-control")
-  label(for="email" class="sr-only") Email Address
-  input.text(name="email" type="text" class="form-control")
-  label(for="password" class="sr-only") Password
-  input(name="password" type="password" class="form-control")
-  label(for="confirmation" class="sr-only") Confirmation
-  input(name="confirmation" type="password" class="form-control")
-  input.btn(type="submit" value="Sign In")
+.container
+        div(class="row justify-content-md-center")
+          form(class="form-signin" name="signin" method="post" action="/register")
+            label(for="first_name" class="sr-only") First name
+            input.text(id="first_name" name="first_name" type="text" class="form-control" class="clear-input" placeholder="first name")
+            label(for="last_name" class="sr-only") Last name
+            input.text(name="last_name" type="text" class="form-control" class="clear-input" placeholder="last name" )
+            label(for="username" class="sr-only") Username
+            input.text(name="username" type="text" class="form-control" class="clear-input" placeholder="username")
+            label(for="email" class="sr-only") Email Address
+            input.text(name="email" type="text" class="form-control" class="clear-input" placeholder="email")
+            label(for="password" class="sr-only") Password
+            input(name="password" type="password" class="form-control" class="clear-input" placeholder="password" )
+            label(for="confirmation" class="sr-only" placeholder="password") Confirmation
+            input(name="confirmation" type="password" class="form-control" class="clear-input" placeholder="password confirmation" )
+            input.btn(type="submit" value="Sign In")
 
 

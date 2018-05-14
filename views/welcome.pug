@@ -4,68 +4,61 @@ html
     title welcome
     include stylesheets.pug
 
-  body(class="text-center" class="detail-body")
+  body(class="text-center")
     include ./partials/nav.pug
   block content
   div(role="main")
-    div(class="jumbotron")
+    div(class="jumbotron" class="welcome-jumbo")
       div(class="container")
-        h1(class="display-1 h1 mb-3 font-weight-bold") MY 700
+        h1(class="display-3 h1 mb-3 font-weight-bold") let's make some waves!
     main(role="main")
       div(class="container marketing")
-        .welcome-text
-          if messages.registerMsg
-            h1(class="jumbotron-heading")= messages.registerMsg
-          else
-            //- careful about flash messages. They go away when page refreshes...
-            h1 hi #{session.passport.user.first_name}!
-            //- This would be more permanent
-            //- h1 Welcome back, #{session.passport.user.first_name}
-
           unless session.passport
             h1 please log in first!
 
           unless !session.passport
-            div(class="row justify-content-center")
-              div(class="col-md-10")
-                h1(class="featurette-heading" class="welcome-heading") Smart Choice
-                  span(class="welcome-subheading") Fill out this form every time you make a smart choice to not use plastic by choosing an alternative or forgoing it entirely
-                  form(action="/savedplastic" method="POST")
-                    label(for="SavedPlasticTypeId")  Plastic Type
-                    select(name="SavedPlasticTypeId" placeholder="Select Plastic Type" required)
-                      option(value="") None
-                      option(value="1") Straw
-                      option(value="2") Cup Lid
-                      option(value="3") Bottle
-                      option(value="4") Bag
-                      option(value="5") Jar
-                      option(value="6") Box
-                      option(value="7") Synthetic Clothing
-                      option(value="8") Plastic Wrap
-                    label(for="quantity") Quantity: 
-                    input.text(id="quantity" name="quantity" type="number" required="required")
-                    input.btn(type="submit" value="Submit" id="submit")
-              
-              div(class="row justify-content-center")
-                div(class="col-md-10")
-                  h1(class="featurette-heading" class="welcome-heading") 
-                    span(class="welcome-subheading") Single Use Plastic Station?
-                    h2 fill out the form to keep track of your consumption of single use plastic, you can still keep it out of the waste stream by reusing it!
-          
-              
-                form(action="/notsavedplastic" method="POST")
-                  label(for="ReuseThisPlasticId")  Plastic Type
-                  select(name="ReuseThisPlasticId" placeholder="Select Plastic Type" required)
-                    option(value="") None
-                    option(value="1") Straw
-                    option(value="2") Cup Lid
-                    option(value="3") Bottle
-                    option(value="4") Bag
-                    option(value="5") Jar
-                    option(value="6") Box
-                    option(value="7") Synthetic Clothing
-                    option(value="8") Plastic Wrap
-                  label(for="quantity") Quantity: 
-                  input.text(id="quantity" name="quantity" type="number" required="required")
-                  input.btn(type="submit" value="Submit" id="submit")
+            div(class="row" class="nav")
+              div(class="col")
+                div(class="my-3 p-3")
+                  div(class="text-center")
+                    img(src="images/wave.svg" class="img-fluid" height="140" width="140")
+                  h1(class="featurette-heading" class="welcome-heading") Smart Choice
+                    span(class="welcome-subheading") <br> Make a wave every time you make a smart choice to not use plastic by choosing an alternative or forgoing it entirely
+                    form(action="/savedplastic" method="POST")
+                      label(for="SavedPlasticTypeId")  Plastic Type
+                      select(name="SavedPlasticTypeId" placeholder="Select Plastic Type" required)
+                        option(value="") smart choice
+                        option(value="1") Straw
+                        option(value="2") Cup Lid
+                        option(value="3") Bottle
+                        option(value="4") Bag
+                        option(value="5") Jar
+                        option(value="6") Box
+                        option(value="7") Synthetic Clothing
+                        option(value="8") Plastic Wrap
+                      label(for="quantity") Quantity: 
+                      input.text(id="quantity" name="quantity" type="number" required="required")
+                      input.btn(type="submit" value="Submit" id="submit" class="btn btn-outline-info btn-lg")
+                
+              div(class="col")
+                div(class="my-3 p-3")
+                  div(class="text-center")
+                    img(src="images/002-water.svg" class="img-fluid" height="140" width="140")
+                  h1(class="featurette-heading" class="welcome-heading") Single Use Plastic Stream
+                    span(class="welcome-subheading") <br> fill out the form to keep track of your consumption of single use plastic, you can still keep it out of the waste stream by reusing it!
+                      form(action="/notsavedplastic" method="POST")
+                        label(for="ReuseThisPlasticId" class="welcome-heading")  Plastic Type
+                        select(name="ReuseThisPlasticId" placeholder="Select Plastic Type" required)
+                          option(value="") SUP
+                          option(value="1") Straw
+                          option(value="2") Cup Lid
+                          option(value="3") Bottle
+                          option(value="4") Bag
+                          option(value="5") Jar
+                          option(value="6") Box
+                          option(value="7") Synthetic Clothing
+                          option(value="8") Plastic Wrap
+                        label(for="quantity" class="welcome-heading") Quantity: 
+                        input.text(id="quantity" name="quantity" type="number" required="required")
+                        input.btn(type="submit" value="Submit" id="submit" class="btn btn-outline-info btn-lg")
 
