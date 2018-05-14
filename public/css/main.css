@@ -43,7 +43,8 @@ input:-webkit-autofill:focus {
   opacity: 0.9; }
 
 .reuse {
-  background-color: rgba(0, 0, 0, 0.01); }
+  background-color: rgba(0, 0, 0, 0.01);
+  border-color: rgba(0, 0, 0, 0.01); }
 
 .reuseThis {
   display: none; }

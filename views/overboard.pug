@@ -3,7 +3,7 @@ html
     title whale
     include stylesheets.pug
   
-  body(class="landing")
+  body
     include ./partials/nav.pug
     
     
@@ -16,9 +16,22 @@ html
     for anonymous in result[0]
       -let count = +`${anonymous.count}`
       -let countArray = new Array(count).fill('wave')
-      h1(id="#{anonymous.count}") all the plastic that hasnt gone overboard! #{anonymous.count}
+      h1(id="#{anonymous.count}" class="display-3 h1 mb-3 font-weight-bold" class="text-center") all the plastic that hasnt gone overboard! 
+      -let today = new Date();
+      -let dd = today.getDate();
+      -let mm = today.getMonth()+1; //January is 0!
+      -let yyyy = today.getFullYear();
+      -if(dd<10) {
+      - dd = '0'+dd
+      -} 
+      -if(mm<10) {
+      -mm = '0'+mm
+      -} 
+      -today = mm + '/' + dd + '/' + yyyy;
+      h1(class="display-1 h1 mb-3 font-weight-bold" class="text-center")  #{anonymous.count} smart choices as of #{today}
+
       .container-fluid
-       h1 #{anonymous.count}
+
       
       .container
         div(class="row p-7")
