@@ -45,12 +45,11 @@ module.exports.updateSUP = (req,res,next)=>{
   user_reuse_this_plastic.findOne({
     where:{
       UserId: req.session.passport.user.id, 
-      singleUse: true, 
       id:req.params.id
     }
   })
   .then(sup=>{
-    sup.updateAttributes({singleUse: false})
+    sup.updateAttributes({singleUse: 1})
   })
   .catch(err=>{
     console.log(err,"err")
