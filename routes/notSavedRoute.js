@@ -2,9 +2,10 @@
 
 const { Router } = require('express');
 const router = Router();
-const { postSUP,getAllReusePlastic } = require('../controllers/notSavedCtrl');
+const { postSUP,getAllReusePlastic, updateSUP } = require('../controllers/notSavedCtrl');
 
 router.post('/notsavedplastic', postSUP);
+router.post('/reuse/:id',updateSUP)
 // router.get('/overboard',getAllReusePlastic)
 
 
