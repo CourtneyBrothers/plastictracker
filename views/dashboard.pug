@@ -11,11 +11,11 @@ html
      
   main(role="main")
     div(class="container" )
-      h1 breakdowns
+      h1(class="display-1 h1 mb-3 font-weight-bold") breakdowns
     div(class="container marketing")
       - let resultArray = result[0]
       - let quantArray =[]
-      div(class="row")
+      div(class="row" class="row justify-content-center")
         each anonymous in resultArray
           div(class="col-lg-4")
             h2 #{anonymous.label} 
