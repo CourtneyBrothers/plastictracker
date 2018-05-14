@@ -24,7 +24,7 @@ html
         - let quantity = +`${anonymous.quantity}`
         -let quantArray = new Array(quantity).fill('plastic')
         .container
-          div(class="row p-5")
+          div(class="row p-5" class="row justify-content-center")
             each plastic, index in quantArray
               div(class="card" class="reuse" style="width: 10rem;")
                 img(src="/images/sweater.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${index}`)
