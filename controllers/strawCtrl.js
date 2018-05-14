@@ -70,3 +70,15 @@ module.exports.rawCountSaved = (req, res, next) => {
       })
     })
   }
+
+
+  // select all line Ids and labels for plastic Id for SUP Detail page
+  module.exports.allSUPIds = (req,res,next)=>{
+    sequelize.query(`SELECT user_reuse_this_plastics."id", user_reuse_this_plastics."ReuseThisPlasticId", reuse_this_plastic_type.label FROM user_reuse_this_plastics INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastics."ReuseThisPlasticId"=reuse_this_plastic_type.id WHERE user_reuse_this_plastics."UserId"=${req.session.passport.user.id} AND user_reuse_this_plastics."ReuseThisPlasticId"=${req.params.id}  `)
+    .then(result => {
+      console.log("result0", result[0], "result0")
+      res.render(`supDetail${req.params.id}`, {
+        result
+      })
+    })
+  }
