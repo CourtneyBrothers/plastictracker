@@ -55,3 +55,22 @@ module.exports.updateSUP = (req,res,next)=>{
     console.log(err,"err")
   })
 }
+
+module.exports.updateRecycledSUP = (req,res,next)=>{
+  console.log("update")
+  const {
+    user_reuse_this_plastic
+  } = req.app.get('models');
+  user_reuse_this_plastic.findOne({
+    where:{
+      UserId: req.session.passport.user.id, 
+      id:req.params.id
+    }
+  })
+  .then(sup=>{
+    sup.updateAttributes({singleUse: 2})
+  })
+  .catch(err=>{
+    console.log(err,"err")
+  })
+}
