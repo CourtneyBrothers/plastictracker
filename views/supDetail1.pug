@@ -4,33 +4,38 @@ html
     include stylesheets.pug
   body
     include ./partials/nav.pug
-    
     div(class="container" class="error")
-         div(class="postition-relative overflow-hidden p-3  p-md-5 m-md3 text-center")
-                div(class="col-md-5 p-lg-5 mx-auto my-5")
-                  h1(class="display-4 font-weight-bold") for every human on earth there are 700 pieces of plastic in the ocean</br> 
-                  a(class="btn btn-outline-info btn-lg" href=`/welcome` role="button") make some waves
+          div(class="postition-relative overflow-hidden p-3  p-md-5 m-md3 text-center")
+                  div(class="col-md-5 p-lg-5 mx-auto my-5")
+                    h1(class="display-4 font-weight-bold") The Last Straw</br> 
+                    a(class="btn btn-outline-info btn-lg" href=`/welcome` role="button") make some waves
 
-
-
-    block content
-      - let resultArray = result[0]
-  - console.log(resultArray, "result array")
-  //sequelize query returns array of anonymous obj w/ plastic id and quantity
-  each anonymous in resultArray
-      div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
-        h1(class="display-4") #{anonymous.label} total saved quantity:#{anonymous.quantity}
-        p(class="lead") TODO FILL IN THIS W/ UX INFO
-        - let quantity = +`${anonymous.quantity}`
-        -let quantArray = new Array(quantity).fill('plastic')
-        .container
-          div(class="row p-5" class="row justify-content-center")
-            each plastic, index in quantArray
-              div(class="card" class="reuse" style="width: 10rem;")
-                img(src="/images/drink.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${index}`)
-                div(class="card-body")
-                button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${index}`) reuse!
-                button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${index}`) recyle!
+    block content 
+        - let resultArray = result[0]
+        - let count = resultArray.length
+        -console.log(count,"count")
+        //doing this because pug continues to throw me a "malformed each" when I try to target the first element in the array
+        
+        -console.log(typeof resultArray)
+         
+          div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+            div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+              h1(class="display-4") total saved quantity:#{count}
+              p(class="lead") TODO FILL IN THIS W/ UX 
+                .container
+                  div(class="row p-5" class="row justify-content-center")
+                    each anonymous in resultArray
+                      div(class="card" class="reuse" style="width: 10rem;")
+                        if anonymous.singleUse === 0
+                          img(src="/images/drink.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
+                        else if anonymous.singleUse === 1
+                          img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
+                        else if anonymous.singleUse === 2
+                          img(src="/images/recycle-bin.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
+                        div(class="card-body")
+                        button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${anonymous.id}`) reuse!
+                        button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${anonymous.id}`) recyle!
+ 
 
 
 script 
