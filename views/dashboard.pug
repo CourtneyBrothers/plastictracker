@@ -6,14 +6,12 @@ html
   body(class="text-center")
   include ./partials/nav.pug
   div(role="main" class="detail-body")
-    div(class="jumbotron" class="my700")
-      div(class="container")
-        h1(class="display-1 h1 mb-3 font-weight-bold") My 700!
-        h1(class="display-1 h1 mb-3 font-weight-bold") 
   div(class="row featurette")
     div(class="col-md-7")
-      h2(class="featurette-heading") What's good? This is what you've logged as saved 
+     
   main(role="main")
+    div(class="container" )
+      h1 breakdowns
     div(class="container marketing")
       - let resultArray = result[0]
       - let quantArray =[]
@@ -31,8 +29,8 @@ html
         -console.log (sum,"sum")
       div(class="jumbotron" class="my700")
         div(class="container")
-          h1(class="display-1 h1 mb-3 font-weight-bold") My 700!
-            h1(class="display-1 h1 mb-3 font-weight-bold" id="my700") #{sum}
+          h1(class="display-1 h1 mb-3 font-weight-bold") my 700
+            h1(class="h1 mb-3 font-weight-bold" id="my700") #{sum}
 
 
 

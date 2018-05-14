@@ -18,8 +18,11 @@ html
       -let countArray = new Array(count).fill('wave')
       h1(id="#{anonymous.count}") all the plastic that hasnt gone overboard! #{anonymous.count}
       .container-fluid
-        img(src="/images/whale.svg")
-
-      each wave in countArray
-        img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="wave-it")
+       h1 #{anonymous.count}
+      
+      .container
+        div(class="row p-7")
+          each wave in countArray
+            div(class="card" class="wave-page" style="width: 10rem;")
+              img(src="/images/wave.svg" class="rounded-circle" width="100" height="100" class="wave-it" class="mx-auto d-block")
     

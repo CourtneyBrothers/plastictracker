@@ -2,7 +2,7 @@ html
   head
     title you rock!
     include stylesheets.pug
-  body(class="detail-body")
+  body
     include ./partials/nav.pug
     
     
@@ -20,14 +20,14 @@ html
         p(class="lead") TODO FILL IN THIS W/ UX INFO
         - let quantity = +`${anonymous.quantity}`
         -let quantArray = new Array(quantity).fill('plastic')
-        .container
-          div(class="row p-5")
-            each plastic, index in quantArray
-              div(class="card" class="reuse" style="width: 10rem;")
-                img(src="/images/garbage.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${index}`)
-                div(class="card-body")
-                button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${index}`) reuse!
-                button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${index}`) recyle!
+        .container(class="detail-container")
+          div(class="row p-5" class="row justify-content-center")
+              each plastic, index in quantArray
+                div(class="card" class="reuse" style="width: 10rem;")
+                  img(src="/images/garbage.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${index}`)
+                  div(class="card-body")
+                  button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${index}`) reuse!
+                  button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${index}`) recyle!
 
 
 script 
