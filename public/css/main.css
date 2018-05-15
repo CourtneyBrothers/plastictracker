@@ -82,3 +82,6 @@ input:-webkit-autofill:focus {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+
+.heading-landing {
+  border: rgba(235, 225, 225, 0.5); }
