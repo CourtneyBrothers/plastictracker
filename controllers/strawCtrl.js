@@ -81,6 +81,9 @@ module.exports.rawCountSaved = (req, res, next) => {
         result
       })
     })
+    .catch(err =>{
+      res.render(`404_error_template`)
+    })
   }
   //select all line ids for each saved detail page to render
   module.exports.allSavedIds = (req,res,next)=>{

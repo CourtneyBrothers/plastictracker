@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title login
+    include stylesheets.pug
+    link(href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet")
+  
+
+  body(class="text-center")
+    unless session.passport
+    include ./partials/nav.pug
+    div(class="cover-container d-flex h-100 p-3 mx-auto flex-column" class="landing")
+      header(class="masthead mb-auto")
+        div(class="inner")
+          h3(class="masthead-brand") 
+            main(role="main" class="inner-cover")
+              h1(class="h1 mb-3 font-weight-bold" class="landing-heading" class="cover-heading" class="error-message") page not found!
+              a(class="btn btn-outline-info btn-lg" href=`/welcome` role="button") keep calm and go back!
+              
+              
+                          
+
+      
+    script
+      include ../client/clientapp/client.js
+      
