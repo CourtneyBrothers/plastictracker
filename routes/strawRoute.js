@@ -3,7 +3,7 @@
 
 const { Router } = require('express');
 const router = Router();
-const { postStraw,countPlastic,countSUP,groupPlasticCount,rawCountSaved,getAllPlastic, allSUPIds  } = require('../controllers/strawCtrl');
+const { postStraw,countPlastic,countSUP,groupPlasticCount,rawCountSaved,getAllPlastic, allSUPIds,allSavedIds,deleteSavedPlastic  } = require('../controllers/strawCtrl');
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
@@ -11,11 +11,11 @@ function isLoggedIn(req, res, next) {
 }
 
 router.post('/savedplastic', postStraw, isLoggedIn);
-router.get('/saved/:id',countPlastic, isLoggedIn);
-router.get('/dashboard', rawCountSaved);
+router.get('/saved/:id',allSavedIds, isLoggedIn);
+router.get('/dashboard', rawCountSaved,isLoggedIn);
 // router.get('/sup/:id',countSUP,isLoggedIn); count query
 router.get('/sup/:id',allSUPIds,isLoggedIn);
 
-router.get('/overboard',getAllPlastic);
-
+router.get('/overboard',getAllPlastic,isLoggedIn);
+router.delete('/deletesaved/:id',deleteSavedPlastic,isLoggedIn)
 module.exports = router;
