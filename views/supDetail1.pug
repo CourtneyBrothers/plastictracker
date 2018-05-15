@@ -13,6 +13,8 @@ html
     block content 
         - let resultArray = result[0]
         - let count = resultArray.length
+        - let reused = []
+        - let recycled = []
         -console.log(count,"count")
         //doing this because pug continues to throw me a "malformed each" when I try to target the first element in the array
         
@@ -30,12 +32,18 @@ html
                           img(src="/images/drink.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                         else if anonymous.singleUse === 1
                           img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
+                          -reused.push(i)
                         else if anonymous.singleUse === 2
                           img(src="/images/recycle-bin.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
+                          -recycled.push(i)
                         div(class="card-body")
                         button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${anonymous.id}`) reuse!
                         button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${anonymous.id}`) recyle!
- 
+          div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+            div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+              h1(class="display-4") total reused: #{reused.length} /#{count}
+                h1(class="display-4") total recycled:#{recycled.length} /#{count} 
+
 
 
 script 
