@@ -25,7 +25,7 @@ html
                 .container
                   div(class="row p-5" class="row justify-content-center")
                     each anonymous in resultArray
-                      div(class="card" class="reuse" style="width: 10rem;")
+                      div(class="card" class="reuse" style="width: 10rem;" id=`card${anonymous.id}`)
                         if anonymous.singleUse === 0
                           img(src="/images/garbage.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                         else if anonymous.singleUse === 1
@@ -35,6 +35,7 @@ html
                         div(class="card-body")
                         button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${anonymous.id}`) reuse!
                         button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${anonymous.id}`) recyle!
+                        button(class="btn btn-outline-danger btn-lg" class="delete" class="deleteBtn" id=`${anonymous.id}`) x
  
 
 
