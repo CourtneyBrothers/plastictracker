@@ -12,13 +12,15 @@ html
 
     block content 
         - let resultArray = result[0]
+        // the object has a length of what is returned? seems like a bug
         - let count = resultArray.length
         - let recycled = []
         - let reused = []
+
         -console.log(count,"count")
         //doing this because pug continues to throw me a "malformed each" when I try to target the first element in the array
         
-        -console.log(typeof resultArray)
+        -console.log(typeof singUse)
          
           div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
             div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
@@ -27,24 +29,23 @@ html
                 .container
                   div(class="row p-5" class="row justify-content-center")
                     each anonymous in resultArray
-                      div(class="card" class="reuse" style="width: 10rem;")
+                      div(class="card" class="reuse" style="width: 10rem;" id=`card${anonymous.id}`)
                         if anonymous.singleUse === 0
                           img(src="/images/ecologism.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                         else if anonymous.singleUse === 1
                           img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
-                          - reused.push(i)
+                          - reused.push(i);
                         else if anonymous.singleUse === 2
                           img(src="/images/recycle-bin.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                           - recycled.push(i)
                         div(class="card-body")
                         button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${anonymous.id}`) reuse!
                         button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${anonymous.id}`) recyle!
-          div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
-            div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
-              h1(class="display-4") total reused: #{reused.length} /#{count}
-                h1(class="display-4") total recycled:#{recycled.length} /#{count} 
-
-
+                        button(class="btn btn-outline-danger btn-lg" class="delete" class="deleteBtn" id=`${anonymous.id}`) x
+                  div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                    div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                      h1(class="display-4") total reused: #{reused.length} /#{count}
+                      h1(class="display-4") total recycled:#{recycled.length} /#{count}
 script 
   include ../node_modules/jquery/dist/jquery.min.js
   include ../client/clientapp/sup.js
