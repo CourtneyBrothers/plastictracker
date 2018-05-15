@@ -53,3 +53,25 @@ Array.from(deleteBtns).forEach((btn) => {
     }
   )
 });
+
+
+let deleteSavedBtns = document.getElementsByClassName("deleteSavedBtn");
+Array.from(deleteSavedBtns).forEach((btn) => {
+  console.log(btn, "btn")
+  btn.addEventListener('click', (e) => {
+      console.log(e, "event")
+      console.log((e.target.id), "id");
+      document.getElementById(`card${e.target.id}`).style.display="none";
+      fetch(`/deletesaved/${e.target.id}`,{
+        method:'delete',
+        credentials:'inlcude'
+      })
+      .then(function(response){
+        return response;
+      })
+      .catch(err => {
+        console.log(err,"error on delete button")
+      })
+    }
+  )
+});

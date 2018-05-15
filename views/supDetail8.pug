@@ -12,11 +12,12 @@ html
 
     block content 
         - let resultArray = result[0]
+        // the object has a length of what is returned? seems like a bug
         - let count = resultArray.length
         -console.log(count,"count")
         //doing this because pug continues to throw me a "malformed each" when I try to target the first element in the array
         
-        -console.log(typeof resultArray)
+        -console.log(typeof singUse)
          
           div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
             div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")

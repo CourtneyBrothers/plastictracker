@@ -72,7 +72,7 @@ module.exports.rawCountSaved = (req, res, next) => {
   }
 
 
-  // select all line Ids and labels for plastic Id for SUP Detail page
+  // select all line Ids and labels for plastic Id for each SUP Detail page
   module.exports.allSUPIds = (req,res,next)=>{
     sequelize.query(`SELECT user_reuse_this_plastics."id", user_reuse_this_plastics."ReuseThisPlasticId", user_reuse_this_plastics."singleUse", reuse_this_plastic_type.label FROM user_reuse_this_plastics INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastics."ReuseThisPlasticId"=reuse_this_plastic_type.id WHERE user_reuse_this_plastics."UserId"=${req.session.passport.user.id} AND user_reuse_this_plastics."ReuseThisPlasticId"=${req.params.id}  `)
     .then(result => {
@@ -81,4 +81,39 @@ module.exports.rawCountSaved = (req, res, next) => {
         result
       })
     })
+  }
+  //select all line ids for each saved detail page to render
+  module.exports.allSavedIds = (req,res,next)=>{
+    sequelize.query(`SELECT user_saved_plastics."id", user_saved_plastics."SavedPlasticTypeId", saved_plastic_types.label FROM user_saved_plastics INNER JOIN saved_plastic_types ON user_saved_plastics."SavedPlasticTypeId"=saved_plastic_types.id WHERE user_saved_plastics."UserId"=${req.session.passport.user.id} AND user_saved_plastics."SavedPlasticTypeId"=${req.params.id}  `)
+    .then(result => {
+      console.log("result0", result[0], "result0")
+      res.render(`plasticDetail${req.params.id}`, {
+        result
+      })
+    })
+  }
+
+  module.exports.deleteSavedPlastic = (req, res, next) => {
+    console.log("delete")
+    const {
+      user_saved_plastic
+    } = req.app.get('models');
+    user_saved_plastic.findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(sup => {
+        sup.destroy({
+            where: {
+              id: req.params.id
+            }
+          })
+          .then((sup)=>{
+            console.log("delete");
+          })
+          .catch(err => {
+            console.log(err, "err");
+          })
+      })
   }
