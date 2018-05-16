@@ -83,6 +83,7 @@ module.exports.updateRecycledSUP = (req, res, next) => {
 }
 
 module.exports.deletePlastic = (req, res, next) => {
+  let pageid
   console.log("delete")
   const {
     user_reuse_this_plastic
@@ -93,13 +94,14 @@ module.exports.deletePlastic = (req, res, next) => {
       }
     })
     .then(sup => {
+      pageid = sup.ReuseThisPlasticId;
       sup.destroy({
           where: {
             id: req.params.id
           }
         })
         .then((sup)=>{
-          res.render(`/sup/${id}`)
+          res.redirect('back');
         })
         .catch(err => {
           console.log(err, "err");

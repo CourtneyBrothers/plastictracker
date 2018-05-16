@@ -4,10 +4,10 @@ html
     include stylesheets.pug
   body
     include ./partials/nav.pug
-    div(class="container" class="error")
+    div(class="container" class="error" class="mt-5")
           div(class="postition-relative overflow-hidden p-3  p-md-5 m-md3 text-center")
                   div(class="col-md-5 p-lg-5 mx-auto my-5")
-                    h1(class="display-4 font-weight-bold") The Last Straw</br> 
+                    h1(class="display-4 font-weight-bold") jars </br> 
                     a(class="btn btn-outline-info btn-lg" href=`/welcome` role="button") make some waves
 
     block content 
@@ -25,7 +25,7 @@ html
           div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
             div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
               h1(class="display-4") total SUP:#{count}
-              p(class="lead") TODO FILL IN THIS W/ UX 
+              p(class="lead") what does your waste stream look like?  
                 .container
                   div(class="row p-5" class="row justify-content-center")
                     each anonymous in resultArray
@@ -42,7 +42,7 @@ html
                         button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${anonymous.id}`) reuse!
                         button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${anonymous.id}`) recyle!
                         button(class="btn btn-outline-danger btn-lg" class="delete" class="deleteBtn" id=`${anonymous.id}`) x
-                  div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                  div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" class="jumbotron")
                     div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
                       h1(class="display-4") total reused: #{reused.length} /#{count}
                       h1(class="display-4") total recycled:#{recycled.length} /#{count}

@@ -6,6 +6,7 @@ const passport = require('passport')
 var session = require('express-session');
 let bodyParser = require('body-parser');
 const path = require('path'); 
+const methodOverride = require('method-override');
 // flash depend on session module to set temp values that persist briefly so we can set a value, kick off a new request, then have that value accessible on the request
 const flash = require('express-flash');
 
@@ -30,6 +31,14 @@ app.use(session({
   saveUninitialized: true
 })); // session secret
 
+app.use(
+  methodOverride(function(req, res) {
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+      let method = req.body._method;
+      return method;
+    }
+  })
+);
 
 app.use(express.static(__dirname + "/public"));
 
@@ -58,17 +67,17 @@ app.use(flash());
 app.use(routes);
 
 // Add a 404 error handler
-// app.use(function(req, res, next){
-//   let error = new Error("Not Found. Try again, nice person");
-//   error.status = 404;
-//   res.status(404).render('404_error_template', {title: "Sorry, page not found"});
-//   next(error)
-// });
+app.use(function(req, res, next){
+  let error = new Error("Not Found. Try again, nice person");
+  error.status = 404;
+  res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+  next(error)
+});
 
-// app.use( (error, req, res, next ) => {
-//   res.status( error.status || 500);
-//   res.render('404_error_template', {title: "Sorry, page not found"});
-// });
+app.use( (error, req, res, next ) => {
+  res.status( error.status || 500);
+  res.render('404_error_template', {title: "Sorry, page not found"});
+});
 
 // Add error handler to pipe all server errors to from the routing middleware
 

@@ -105,3 +105,6 @@ input:-webkit-autofill:focus {
 
 select {
   font-size: 2rem; }
+
+.blue-text {
+  color: #3cacf7; }
