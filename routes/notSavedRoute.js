@@ -14,7 +14,7 @@ router.post('/reuse/:id',updateSUP,isLoggedIn);
 router.post('/recycle/:id',updateRecycledSUP,isLoggedIn);
 router.post('/delete/:id',deletePlastic,isLoggedIn);
 // router.get('/all',getAllPlastic,isLoggedIn)
-// router.get('/supdashboard',getAllSUP,isLoggedIn)
+router.get('/supdashboard',getAllSUP,isLoggedIn)
 
 
 module.exports = router;
