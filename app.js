@@ -6,6 +6,7 @@ const passport = require('passport')
 var session = require('express-session');
 let bodyParser = require('body-parser');
 const path = require('path'); 
+const methodOverride = require('method-override');
 // flash depend on session module to set temp values that persist briefly so we can set a value, kick off a new request, then have that value accessible on the request
 const flash = require('express-flash');
 
@@ -30,6 +31,14 @@ app.use(session({
   saveUninitialized: true
 })); // session secret
 
+app.use(
+  methodOverride(function(req, res) {
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+      let method = req.body._method;
+      return method;
+    }
+  })
+);
 
 app.use(express.static(__dirname + "/public"));
 

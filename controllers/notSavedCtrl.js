@@ -30,7 +30,7 @@ module.exports.getAllSUP = (req, res, next) => {
   const {
     user_reuse_this_plastic
   } = req.app.get('models');
-  sequelize.query(`select user_reuse_this_plastic."ReuseThisPlasticId",reuse_this_plastic_type.label, COUNT (reuse_this_plastic_type.label) AS quantity FROM user_reuse_this_plastic INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastic."ReuseThisPlasticId"=reuse_this_plastic_type.id WHERE user_reuse_this_plastic."UserId"=${req.session.passport.user.id} GROUP BY user_reuse_this_plastic."ReuseThisPlasticId",reuse_this_plastic_type.label   `)
+  sequelize.query(`select user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label, COUNT (reuse_this_plastic_type.label) AS quantity FROM user_reuse_this_plastics INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastics."ReuseThisPlasticId"=reuse_this_plastic_type.id WHERE user_reuse_this_plastics."UserId"=${req.session.passport.user.id} GROUP BY user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label`)
     .then(result => {
       console.log("result0", result[0], "result0")
       res.render("supDashboard", {
@@ -83,6 +83,7 @@ module.exports.updateRecycledSUP = (req, res, next) => {
 }
 
 module.exports.deletePlastic = (req, res, next) => {
+  let pageid
   console.log("delete")
   const {
     user_reuse_this_plastic
@@ -93,13 +94,14 @@ module.exports.deletePlastic = (req, res, next) => {
       }
     })
     .then(sup => {
+      pageid = sup.ReuseThisPlasticId;
       sup.destroy({
           where: {
             id: req.params.id
           }
         })
         .then((sup)=>{
-          res.render(`/sup/${id}`)
+          res.redirect('back');
         })
         .catch(err => {
           console.log(err, "err");

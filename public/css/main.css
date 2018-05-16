@@ -6,8 +6,7 @@
   background-size: cover; }
 
 .landing-heading {
-  color: white;
-  font-size: 12rem; }
+  color: white; }
 
 .landing-btn {
   color: white; }
@@ -29,10 +28,10 @@ input:-webkit-autofill:focus {
 
 .welcome-heading {
   font-size: 2rem;
-  color: #51ced0; }
+  color: #3cacf7; }
 
 .welcome-subheading {
-  color: #1c6b6c; }
+  color: black; }
 
 .detail-body {
   background: url("/images/279864-P621DZ-927.jpg") no-repeat center center fixed;
@@ -60,7 +59,7 @@ input:-webkit-autofill:focus {
   background-color: rgba(235, 225, 225, 0.5); }
 
 .nav {
-  background-color: rgba(235, 225, 225, 0.5); }
+  background-color: rgba(235, 225, 225, 0.8); }
 
 .jumbotron {
   background: url("/images/280312-P6UG69-636.jpg") no-repeat center center fixed;
@@ -88,3 +87,24 @@ input:-webkit-autofill:focus {
 
 .clear-container {
   background-color: rgba(235, 225, 225, 0.5); }
+
+.whale {
+  background: url("/images/whale404.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.total {
+  color: white; }
+
+.fix {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 500; }
+
+select {
+  font-size: 2rem; }
+
+.blue-text {
+  color: #3cacf7; }

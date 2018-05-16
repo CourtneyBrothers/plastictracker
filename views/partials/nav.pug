@@ -8,9 +8,9 @@ nav(class="navbar navbar-expand-sm navbar-light" class="nav")
               //- a(class="nav-item nav-link" class="nav-click" href="/overboard") everything saved
               a(class="nav-item nav-link" class="nav-click" href="/dashboard") saved plastic
               //- a(class="nav-item nav-link" class="nav-click" href="/supdashboard") sup plastic
-              //- a(class="nav-item nav-link" class="nav-click" href="/supdashboard") SUP
+              a(class="nav-item nav-link" class="nav-click" href="/supdashboard") SUP
               a(class="nav-item nav-link" class="nav-click" href="/") about ocean plastic
               unless session.passport
               form(method="POST")
-                button(type="submit" formaction="/logout" class="btn btn-outline-info btn-lg") logout
+                button(type="submit" formaction="/logout" class="btn btn-outline-info btn-sm") logout
       
