@@ -1,10 +1,7 @@
 nav(class="navbar navbar-expand-sm navbar-light" class="nav")  
       if session.passport
-        a(class="navbar-brand")
-          span(class="navbar-brand mb-0 h1 text-light") #{session.passport.user.username}
-          img(src="/images/turtle.svg" width="30" height="30" alt="")  
         -var id = session.passport.user.id
-          div(class="collapse navbar-collapse" id="navbarNavAltMarkup")
+          div(id="navbarNavAltMarkup")
             div(class="navbar-nav")
               a(class="nav-item nav-link" class="nav-click" href="/welcome" ) home
               //- a(class="nav-item nav-link" class="nav-click" href=`/profile/${id}`) profile
