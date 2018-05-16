@@ -26,16 +26,19 @@ module.exports.postSUP = (req, res, next) => {
 }
 
 
-module.exports.getAllReusePlastic = (req, res, next) => {
-  sequelize.query(`SELECT user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label, COUNT (reuse_this_plastic_type.label) AS quantity FROM user_reuse_this_plastics INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastics."ReuseThisPlasticId"=reuse_this_plastic_type.id GROUP BY user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label
-  `)
+module.exports.getAllSUP = (req, res, next) => {
+  const {
+    user_reuse_this_plastic
+  } = req.app.get('models');
+  sequelize.query(`select user_reuse_this_plastic."ReuseThisPlasticId",reuse_this_plastic_type.label, COUNT (reuse_this_plastic_type.label) AS quantity FROM user_reuse_this_plastic INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastic."ReuseThisPlasticId"=reuse_this_plastic_type.id WHERE user_reuse_this_plastic."UserId"=${req.session.passport.user.id} GROUP BY user_reuse_this_plastic."ReuseThisPlasticId",reuse_this_plastic_type.label   `)
     .then(result => {
       console.log("result0", result[0], "result0")
-      res.render("overboard", {
+      res.render("supDashboard", {
         result
       })
     })
 }
+
 
 module.exports.updateSUP = (req, res, next) => {
   console.log("update")
@@ -96,7 +99,7 @@ module.exports.deletePlastic = (req, res, next) => {
           }
         })
         .then((sup)=>{
-          console.log("delete");
+          res.render(`/sup/${id}`)
         })
         .catch(err => {
           console.log(err, "err");

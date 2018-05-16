@@ -7,14 +7,28 @@ html
   body(class="text-center")
     include ./partials/nav.pug
   block content
-  div(role="main")
-    div(class="jumbotron" class="welcome-jumbo")
-      div(class="container")
-        h1(class="display-3 h1 mb-3 font-weight-bold") let's make some waves!
-    main(role="main")
+  for anonymous in result[0]
+      -let count = +`${anonymous.count}`
+      -let countArray = new Array(count).fill('wave') 
+      -let today = new Date();
+      -let dd = today.getDate();
+      -let mm = today.getMonth()+1; //January is 0!
+      -let yyyy = today.getFullYear();
+      -if(dd<10) {
+      - dd = '0'+dd
+      -} 
+      -if(mm<10) {
+      -mm = '0'+mm
+      -} 
+      -today = mm + '/' + dd + '/' + yyyy;
+      div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" class="error")
+            div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+              h1(class="display-3") total saved plastic:#{count}
+              h1(class="display-4") #{today} 
+      main(role="main")
       div(class="container marketing")
           unless session.passport
-            h1 please log in first!
+            h1(class="display-3") you must be logged in to see this page
 
           unless !session.passport
             div(class="row" class="nav")
@@ -51,13 +65,16 @@ html
                         select(name="ReuseThisPlasticId" placeholder="Select Plastic Type" required)
                           option(value="") SUP
                           option(value="1") Straw
-                          option(value="2") Cup Lid
+                          option(value="2") Coffee Cup
                           option(value="3") Bottle
                           option(value="4") Bag
                           option(value="5") Jar
                           option(value="6") Box
                           option(value="7") Synthetic Clothing
                           option(value="8") Plastic Wrap
+                          option(value="9") Cup
+                          option(value="10") Utensils
+                          option(value="11") Takeout
                         label(for="quantity" class="welcome-heading") Quantity: 
                         input.text(id="quantity" name="quantity" type="number" required="required")
                         input.btn(type="submit" value="Submit" id="submit" class="btn btn-outline-info btn-lg")

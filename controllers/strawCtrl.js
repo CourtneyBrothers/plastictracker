@@ -61,15 +61,6 @@ module.exports.rawCountSaved = (req, res, next) => {
   }
 
 
-  module.exports.getAllPlastic = (req, res,next)=>{
-    sequelize.query(`select count(*) from user_saved_plastics`)
-    .then(result => {
-      console.log("result0", result[0], "result0")
-      res.render("overboard", {
-        result
-      })
-    })
-  }
 
 
   // select all line Ids and labels for plastic Id for each SUP Detail page
@@ -114,9 +105,24 @@ module.exports.rawCountSaved = (req, res, next) => {
           })
           .then((sup)=>{
             console.log("delete");
+            res.redirect("/")
           })
           .catch(err => {
             console.log(err, "err");
           })
       })
+  }
+
+  //get all plastic from saved from wastestream for all page
+  module.exports.getAllPlastic = (req,res,next)=>{
+    sequelize.query(`select count(*) from user_saved_plastics`)
+    .then(result => {
+      console.log("result0", result[0], "result0")
+      res.render("welcome", {
+        result
+      })
+    })
+    .catch(error =>{
+     console.log(error,"getallplastic error")
+    })
   }

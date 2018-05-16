@@ -4,7 +4,7 @@
           "label": "straw"
       },
       {
-          "label": "cup lid"
+          "label": "coffe cup"
       },
       {
           "label": "bottle"
@@ -23,6 +23,15 @@
       },
       {
         "label": "plastic wrap"
+      },
+      {
+        "label": "cup"
+      },
+      {
+        "label": "utensils"
+      },
+      {
+        "label": "takeout"
       }
   ]
 }
