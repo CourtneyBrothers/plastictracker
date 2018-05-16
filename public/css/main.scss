@@ -48,11 +48,11 @@ input:-webkit-autofill:focus {
 //welcome styles
 .welcome-heading{
   font-size:2rem;
-  color: rgb(81, 206, 208)
+  color: rgb(60, 172, 247)
 }
 
 .welcome-subheading{
-  color:rgb(28, 107, 108)
+  color:black;
 }
 //nav styles
 
@@ -92,7 +92,7 @@ input:-webkit-autofill:focus {
 }
 
 .nav{
-  background-color: rgba(235, 225, 225, 0.5);
+  background-color: rgba(235, 225, 225, 0.8);
 }
 
 .jumbotron {
@@ -127,4 +127,25 @@ input:-webkit-autofill:focus {
 
 .clear-container{
   background-color: rgba(235, 225, 225, 0.5);
+}
+
+.whale{
+  background: url("/images/whale404.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.total{
+  color:white;
+}
+
+.fix{
+  display: inline-block;
+  font-size:2rem;
+  font-weight:500;
+}
+
+select{
+  font-size:2rem;
 }
