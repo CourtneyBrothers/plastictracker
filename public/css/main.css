@@ -85,3 +85,6 @@ input:-webkit-autofill:focus {
 
 .heading-landing {
   border: rgba(235, 225, 225, 0.5); }
+
+.clear-container {
+  background-color: rgba(235, 225, 225, 0.5); }

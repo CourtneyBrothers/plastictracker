@@ -31,7 +31,7 @@ html
                     each anonymous in resultArray
                       div(class="card" class="reuse" style="width: 10rem;" id=`card${anonymous.id}`)
                         if anonymous.singleUse === 0
-                          img(src="/images/jelly.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
+                          img(src="/images/plastic-cup.svg" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                         else if anonymous.singleUse === 1
                           img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                           - reused.push(i);
@@ -46,6 +46,10 @@ html
                     div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
                       h1(class="display-4") total reused: #{reused.length} /#{count}
                       h1(class="display-4") total recycled:#{recycled.length} /#{count}
+              
+ 
+
+
 script 
   include ../node_modules/jquery/dist/jquery.min.js
   include ../client/clientapp/sup.js
