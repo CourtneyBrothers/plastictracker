@@ -108,3 +108,6 @@ select {
 
 .blue-text {
   color: #3cacf7; }
+
+.line {
+  border: 10px solid white; }
