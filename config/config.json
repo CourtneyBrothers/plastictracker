@@ -1,17 +1,38 @@
 {
   "development": {
-    "database": "plastictracker",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "ec2-54-225-107-174.compute-1.amazonaws.com",
+    "database": "ddh75mgguv8k75",
+    "username": "hqhuigfqjlzfuy",
+    "password": "6dd42403ef952a4ef0daf1ebb6ce6f5f91662909efc7c12033b1393d4211b7bf",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+    }
   },
   "test": {
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "postrges"
+    "host": "ec2-54-225-107-174.compute-1.amazonaws.com",
+    "database": "ddh75mgguv8k75",
+    "username": "hqhuigfqjlzfuy",
+    "password": "6dd42403ef952a4ef0daf1ebb6ce6f5f91662909efc7c12033b1393d4211b7bf",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+    }
   },
   "production": {
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "ec2-54-225-107-174.compute-1.amazonaws.com",
+    "database": "ddh75mgguv8k75",
+    "username": "hqhuigfqjlzfuy",
+    "password": "6dd42403ef952a4ef0daf1ebb6ce6f5f91662909efc7c12033b1393d4211b7bf",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+    }
   }
 }

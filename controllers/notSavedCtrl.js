@@ -1,13 +1,9 @@
 'use strict';
 const passport = require('passport');
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize('plastictracker', null, null, {
-  dialect: 'postgres'
-});
 
 module.exports.postSUP = (req, res, next) => {
   const {
-    user_reuse_this_plastic
+    user_reuse_this_plastic, sequelize
   } = req.app.get('models');
   let reqObj = req.body;
   reqObj.UserId = req.session.passport.user.id;
@@ -28,7 +24,7 @@ module.exports.postSUP = (req, res, next) => {
 
 module.exports.getAllSUP = (req, res, next) => {
   const {
-    user_reuse_this_plastic
+    user_reuse_this_plastic, sequelize
   } = req.app.get('models');
   sequelize.query(`select user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label, COUNT (reuse_this_plastic_type.label) AS quantity FROM user_reuse_this_plastics INNER JOIN reuse_this_plastic_type ON user_reuse_this_plastics."ReuseThisPlasticId"=reuse_this_plastic_type.id WHERE user_reuse_this_plastics."UserId"=${req.session.passport.user.id} GROUP BY user_reuse_this_plastics."ReuseThisPlasticId",reuse_this_plastic_type.label`)
     .then(result => {
@@ -101,7 +97,7 @@ module.exports.deletePlastic = (req, res, next) => {
           }
         })
         .then((sup)=>{
-          res.redirect('back');
+          console.log('cant set headers error')
         })
         .catch(err => {
           console.log(err, "err");

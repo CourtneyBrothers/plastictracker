@@ -52,8 +52,7 @@ input:-webkit-autofill:focus {
   background-color: rgba(0, 0, 0, 0.001); }
 
 #my700 {
-  font-size: 12rem;
-  color: white; }
+  font-size: 12rem; }
 
 .info1 {
   background-color: rgba(235, 225, 225, 0.5); }
@@ -108,3 +107,6 @@ select {
 
 .blue-text {
   color: #3cacf7; }
+
+.line {
+  border: 10px solid white; }

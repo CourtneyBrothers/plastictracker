@@ -33,14 +33,14 @@ html
                         if anonymous.singleUse === 0
                           img(src="/images/hamburger.svg" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                         else if anonymous.singleUse === 1
-                          img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
+                          img(src="/images/002-water.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                           - reused.push(i);
                         else if anonymous.singleUse === 2
                           img(src="/images/recycle-bin.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id=`sup${anonymous.id}`)
                           - recycled.push(i)
                         div(class="card-body")
                         button(class="btn btn-outline-info btn-lg" class="reuse" class="reuseBtn" id=`${anonymous.id}`) reuse!
-                        button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${anonymous.id}`) recyle!
+                        button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id=`${anonymous.id}`) recycle!
                         button(class="btn btn-outline-danger btn-lg" class="delete" class="deleteBtn" id=`${anonymous.id}`) x
                   div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" class="jumbotron")
                     div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
