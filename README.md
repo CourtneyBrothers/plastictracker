@@ -1,8 +1,9 @@
 ## NSS full stack final project 
 
-## THIS IS THE LAST STRAW (hopefully)
+## THIS IS THE LAST STRAW
+![landing page](./screenshots/landing.png)
 ## Full stack web app built on SNEP stack! AKA sequelize node express pug
-
+# This project is hosted at https://laststraw.herokuapp.com/
 # Track your consumption of single use plastic 
 
 # Start here to initilizate the project
@@ -40,40 +41,40 @@ run `node build_db`
 
 7. To run the app 
 
-`nodemon app.js` **recommmended** 
-** note `npm install -g nodemon` assumed but with no global install add nodemon to your dependencies `npm install --save-dev nodemon`
+`nodemon app.js`
+
+`npm install -g nodemon` assumed but with no global install add nodemon to your dependencies `npm install --save-dev nodemon`
 
 serving the app will present a login page.  A dummy user is in json in order for developers to login w/o re-registering each time
 
 after login users are presented with a view to select type and quantity of plastic saved 
 `http://localhost:8080/welcome`
 
+after submission users are presented with totals of each type of plastic saved 
+
 and 
 
-users are presented with a view to select type and quantity of SUP consumed
+users are presented with a view to select type and quantity of SUP consumed from the welcome page
+submission directs users to view of sup with options to update sup status to either reused or recycled
 
-after submission users are presented with totals of each type of plastic saved by id 
-if they skipped plastic used the submit button routes to 
-`http://localhost:8080/saved/**id**`
-ex) `http://localhost:8080/saved/2` 
-loads with `cup lid quantity9:`
+![choice affordance](./screenshots/affordance.png)
+![saved](./screenshots/saved.png)
+![waste stream](./screenshots/wastestream.png)
 
-if they added to their sup quantity the submit button routes to 
-and `http://localhost:8080/saved/**id**`
-ex) `http://localhost:8080/sup/2`
-loads with `cup lid quantity:10`
+## Authors
 
-`http://localhost:8080/dashboard`
-lists the total quanties of saved plastics for that user 
-ex) 
-`straw quantity:12
-cup lid quantity:9
-other quantity:12`
+* **Courtney Brothers** - [courtneybrothers](https://github.com/courtneybrothers)
 
-`http://localhost:8080/overboard` OR by selecting overboard link in nav bar will list the total for all saved plastic among all users of the app
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## credits 
+
+all icons and images used are attributed on the credits page of the application
 
 
-**readme last updated 4/9/2018**
+**readme last updated 4/17/2018**
 
 
 
