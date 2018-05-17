@@ -97,7 +97,7 @@ module.exports.deletePlastic = (req, res, next) => {
           }
         })
         .then((sup)=>{
-          res.redirect('back');
+          console.log('cant set headers error')
         })
         .catch(err => {
           console.log(err, "err");
