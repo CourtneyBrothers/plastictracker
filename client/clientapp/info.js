@@ -9,7 +9,7 @@ document.getElementById("swapRecycle").addEventListener('click',()=>{
   document.getElementById("recycled").innerHTML="total recycled: 1";
 })
 
-document.getElementById("my700").addEventListener('click',()=>{
+document.getElementById("my700btn").addEventListener('click',()=>{
   document.getElementById("drink1").src="/images/wave.svg";
   document.getElementById("text700").innerHTML="My 700:<br> 466";
 })
