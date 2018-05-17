@@ -3,7 +3,7 @@
 ## THIS IS THE LAST STRAW
 ![landing page](./screenshots/landing.png)
 ## Full stack web app built on SNEP stack! AKA sequelize node express pug
-
+# This project is hosted at https://laststraw.herokuapp.com/
 # Track your consumption of single use plastic 
 
 # Start here to initilizate the project
@@ -41,8 +41,9 @@ run `node build_db`
 
 7. To run the app 
 
-`nodemon app.js` **recommmended** 
-** note `npm install -g nodemon` assumed but with no global install add nodemon to your dependencies `npm install --save-dev nodemon`
+`nodemon app.js`
+
+`npm install -g nodemon` assumed but with no global install add nodemon to your dependencies `npm install --save-dev nodemon`
 
 serving the app will present a login page.  A dummy user is in json in order for developers to login w/o re-registering each time
 
