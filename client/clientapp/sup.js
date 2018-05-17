@@ -7,7 +7,7 @@ Array.from(reuseBtns).forEach((btn) => {
   btn.addEventListener('click', (e) => {
       console.log(e, "event")
       console.log((e.target.id), "id");
-      document.getElementById(`sup${e.target.id}`).src="/images/wave.svg";
+      document.getElementById(`sup${e.target.id}`).src="/images/002-water.svg";
       $.ajax({
         url:`${location.origin}/reuse/${e.target.id}`,
         type:'post',

@@ -6,9 +6,22 @@ html
     link(href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet")
   
 
-  body(class="text-center" class="landing")
+  body(class="text-center" class="error")
     unless session.passport
     include ./partials/nav.pug
+    div(class="container")
+      div(class="postition-relative overflow-hidden p-3  p-md-5 m-md3 text-center")
+        h1(class="lead font-weight-bold") There are 700 pieces of plastic in the ocean <br> for every human on earth <br>
+          img(src="/images/drink.svg" class="rounded-circle" width="100" height="100" class="wave-it")
+          img(src="/images/coffee.svg" class="rounded-circle" width="100" height="100" class="wave-it")
+          img(src="/images/water.svg" class="rounded-circle" width="100" height="100" class="wave-it")
+          img(src="/images/ecologism.svg" class="rounded-circle" width="100" height="100" class="wave-it")
+          img(src="/images/jelly.svg" class="rounded-circle" width="100" height="100" class="wave-it")
+          img(src="/images/garbage.svg" class="rounded-circle" width="100" height="100" class="wave-it")
+          img(src="/images/sweater.svg" width="100"  height="100" class="wave-it")
+          img(src="/images/plastic-cup.svg" width="80" height="80" class="wave-it")
+          img(src="/images/hamburger.svg" class="rounded-circle" width="100" height="100" class="wave-it")
+          img(src="/images/cutlery.svg" width="100" height="100" class="wave-it")
 
     div(class="cover-container d-flex h-100 p-1 mx-auto flex-column")
       header(class="masthead mb-auto")
@@ -17,9 +30,7 @@ html
             main(role="main" class="inner-cover")
               div(class="container")
               div(class="postition-relative overflow-hidden p-3  p-md-5 m-md3 text-center mb-5")
-                div(class="col-md-5 p-lg-5 mx-auto my-5" class="info1")
-                  p(class="lead") there are 700 pieces of plastic in the ocean for every human on earth
-                  h1(class="display-3") this is <br> the last <br> straw
+                h1(class="display-1 font-weight-bold") this is<br>the last<br>straw
                     unless session.passport
                       p.lead
                         block content 
@@ -28,24 +39,59 @@ html
                           p.lead
                             button#showRegister(class="btn btn-outline-info btn-lg" class="landing-btn") sign up
 
-                div(class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3" class="info1")
+                div(class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3 bg-light")
                   div(class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden font-weight-bold")
                     div(class="my-3 py-3")
-                      img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="wave-it")
-                      h2(class="display-5" class="blue-text") Collecting data on your  choices  grows awareness and creates opportunity for change.
+                      img(src="/images/002-water.svg" class="rounded-circle" width="140" height="140" class="wave-it")
+                      h2(class="display-4" class="blue-text") Collecting data on your  choices  grows awareness and creates opportunity for change.
 
-      
+                  div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                        .container
+                          div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" class="jumbotron")
+                            div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                              h1(class="display-4" id="reused") total reused:
+                              h1(class="display-4" id="recycled") total recycled:
+                
         
                   div(class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden")
-                    div(class="my-3 p-3" )
-                      h2(class="display-4") How to use this app:
-                      h2(class="display-5") Every time you make a smart choice, log it! Every smart choice is one that prevents a piece of plastic from entering the waste stream! Every smart choice will count down on your #700
-                      h2(class="display-5") Every time you make use or buy single use plastic (sup), log it too! You can keep track of what you reuse or recycle
+                    div(class="my-3 p-3" class="nav")
+                      h2(class="display-4") how to track:
+                        div(class="row p-5" class="row justify-content-center")
+                          div(class="card" class="reuse" style="width: 10rem;")
+                            img(src="/images/drink.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id="drink")
+                            div(class="card-body")
+                            button(class="btn btn-outline-info btn-lg" id="swapReuse") reuse!
+                            button(class="btn btn-outline-success btn-lg" class="recycle" class="recycleBtn" id="swapRecycle") recyle!
+                      h2(class="display-5") Every time you make use or buy single use plastic (sup), log it! You can keep track of what you reuse or recycle
+                  
+                div(class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3 bg-light")
+                  div(class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden font-weight-bold")
+                    div(class="my-3 py-3" class="nav")
+                      img(src="/images/wave.svg" class="rounded-circle" width="140" height="140" class="wave-it")
+                      h2(class="display-4" class="blue-text") "Smart choices" are ones that prevent plastic from ever entering the waste stream
+
+                  div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                        div(class="container" class="jumbotron")
+                          div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                            div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                              h1(class="display-3" id="text700") My 700:<br> 467
+                              
+                
+        
+                  div(class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden")
+                    div(class="my-3 p-3" class="nav")
+                      h2(class="display-4") How to save:
+                        div(class="row p-5" class="row justify-content-center")
+                          div(class="card" class="reuse" style="width: 10rem;")
+                            img(src="/images/drink.svg" class="rounded-circle" width="140" height="140" class="recycleThis" id="drink1")
+                            div(class="card-body")
+                            button(class="btn btn-outline-info btn-lg" id="my700") + 
+                      h2(class="display-5") count down from your 700 every time you make a choice to skip a plastic product 
                     
 
                 div(class="postition-relative overflow-hidden p-3  p-md-5 m-md3 text-center" class="info1")
                   div(class="col-md-10 p-lg-5 mx-auto my-5")
-                    h1(class="display-2 font-weight-bold") Make this the last straw</br>
+                    h1(class="display-2 font-weight-bold") Make this the<br>last<br> straw</br>
                       img(src="/images/drink.svg" class="rounded-circle" width="140" height="140" class="wave-it")
                       img(src="/images/coffee.svg" class="rounded-circle" width="140" height="140" class="wave-it")
                       img(src="/images/water.svg" class="rounded-circle" width="140" height="140" class="wave-it")
