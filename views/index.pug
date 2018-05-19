@@ -4,6 +4,7 @@ html
     title login
     include stylesheets.pug
     link(href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
   
 
   body(class="text-center" class="error")
@@ -30,7 +31,7 @@ html
             main(role="main" class="inner-cover")
               div(class="container")
               div(class="postition-relative overflow-hidden p-3  p-md-5 m-md3 text-center mb-5")
-                h1(class="display-1 font-weight-bold") this is<br>the last<br>straw
+                h1(class="display-1 font-weight-bold" class="iheading") this is<br>the last<br>straw
                       p.lead
                         block content 
                           p.lead
@@ -92,7 +93,7 @@ html
                               h1(class="display-4" id="recycled") total recycled:
                 
         
-                  div(class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden")
+                  div(class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden justify-content-center")
                     div(class="p-3" class="nav" class="justify-content-center")
                       h2(class="lead") track your consumption of single use plastics:
                       p(class="lead") You can update based on what you reuse or recycle
