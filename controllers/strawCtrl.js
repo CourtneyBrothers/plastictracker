@@ -139,13 +139,15 @@ module.exports.rawCountSaved = (req, res, next) => {
 
   module.exports.postSaved = (req,res,next) =>{
     const{user_saved_plastic} = req.app.get('models');
+    let reqid= req.params.id;
     user_saved_plastic.create({
         UserId: req.session.passport.user.id,
         SavedPlasticTypeId: req.params.id
     })
     .then(result => {
       console.log("resut", result)
-      res.redirect(`/saved/${req.params.id}`)
+      console.log(req.params.id, )
+      res.redirect(`/saved/${reqid}`)
     })
     .catch(err => {
       console.log(err, "err w post saved")
