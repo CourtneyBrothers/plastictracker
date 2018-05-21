@@ -76,7 +76,6 @@ app.use(function(req, res, next){
 
 app.use( (error, req, res, next ) => {
   res.status( error.status || 500);
-  res.render('404_error_template', {title: "Sorry, page not found"});
 });
 
 // Add error handler to pipe all server errors to from the routing middleware
