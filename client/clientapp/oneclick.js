@@ -18,6 +18,8 @@ Array.from(oneClickCards).forEach((card) => {
         url:`${location.origin}/savedClick/${imgNumber}`,
         type:'post',
         data:{}
+      }).done(()=>{
+        window.location.href=`${location.origin}/saved/${imgNumber}`
       })
     }
   )
