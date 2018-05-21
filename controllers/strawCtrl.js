@@ -136,3 +136,18 @@ module.exports.rawCountSaved = (req, res, next) => {
      console.log(error,"getallplastic error")
     })
   }
+
+  module.exports.postSaved = (req,res,next) =>{
+    const{user_saved_plastic} = req.app.get('models');
+    user_saved_plastic.create({
+        UserId: req.session.passport.user.id,
+        SavedPlasticTypeId: req.params.id
+    })
+    .then(result => {
+      console.log("resut", result)
+      res.redirect(`/saved/${req.params.id}`)
+    })
+    .catch(err => {
+      console.log(err, "err w post saved")
+    })
+  }
