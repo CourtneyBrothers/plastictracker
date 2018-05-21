@@ -21,9 +21,61 @@ html
       -mm = '0'+mm
       -} 
       -today = mm + '-' + dd + '-' + yyyy;
+      
       div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto mb-5" class="jumbotron")
-            div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto")
-              h1(class="display-3 font-weight-bold")  the last straw
+        div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto")
+          h1(class="display-3 font-weight-bold")  the last straw
+            div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+              div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center")
+                h1(class="display-4") one click add
+                p(class="lead") what does your waste stream look like?  
+                  .container
+                    div(class="row p-5" class="row justify-content-center")
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick1`)
+                          img(src="/images/drink.svg" width="140" height="140" class="recycleThis" id=`img1`)
+                          div(class="card-body")
+                          a(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`1` href=`/saved/1`) straw
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick2`)
+                          img(src="/images/coffee.svg" width="140" height="140" class="recycleThis" id=`img2`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`2`) coffee cup
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick3`)
+                          img(src="/images/water.svg" width="140" height="140" class="recycleThis" id=`img3`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`3`) water bottle
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick4`)
+                          img(src="/images/ecologism.svg" width="140" height="140" class="recycleThis" id=`img4`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`4`) plastic bag
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick5`)
+                          img(src="/images/jelly.svg" width="140" height="140" class="recycleThis" id=`img5`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`5`) jar
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick6`)
+                          img(src="/images/garbage.svg" width="140" height="140" class="recycleThis" id=`img6`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`6`) plastic box
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick7`)
+                          img(src="/images/sweater.svg" width="140" height="140" class="recycleThis" id=`img7`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`7`) synethics
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick8`)
+                          img(src="/images/garbage.svg" width="140" height="140" class="recycleThis" id=`img8`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`8`) plastic wrap
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick9`)
+                          img(src="/images/plastic-cup.svg" width="140" height="140" class="recycleThis" id=`img9`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`9`) plastic cup
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick10`)
+                          img(src="/images/cutlery.svg" width="140" height="140" class="recycleThis" id=`img10`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`10`) utensils
+                      div(class="card" class="reuse" class="oneClick" style="width: 10rem;" id=`oneClick11`)
+                          img(src="/images/hamburger.svg" width="140" height="140" class="recycleThis" id=`img11`)
+                          div(class="card-body")
+                          button(class="btn btn-outline-info btn-lg" class="reuse" class="oneClickBtn" id=`11`) takeout
+
       main(role="main")
         div(class="container-fluid" class="nav" class="text-center")
               div(class="row")
@@ -98,3 +150,6 @@ html
         main(role="main")
         div(class="container marketing")
 
+  script
+    include ../node_modules/jquery/dist/jquery.min.js
+    include ../client/clientapp/oneClick.js

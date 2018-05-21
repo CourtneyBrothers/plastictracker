@@ -42,7 +42,7 @@ input:-webkit-autofill:focus {
   opacity: 0.9; }
 
 .reuse {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(255, 255, 255, 0.01);
   border-color: rgba(0, 0, 0, 0.01); }
 
 .reuseThis {
@@ -110,3 +110,15 @@ select {
 
 .line {
   border: 10px solid white; }
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  .iheading {
+    font-size: 50px; } }
+
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone X ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
