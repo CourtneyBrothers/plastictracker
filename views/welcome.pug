@@ -7,21 +7,6 @@ html
   body(class="text-center")
     include ./partials/nav.pug
   block content
-  for anonymous in result[0]
-      -let count = +`${anonymous.count}`
-      -let countArray = new Array(count).fill('wave') 
-      -let today = new Date();
-      -let dd = today.getDate();
-      -let mm = today.getMonth()+1; //January is 0!
-      -let yyyy = today.getFullYear();
-      -if(dd<10) {
-      - dd = '0'+dd
-      -} 
-      -if(mm<10) {
-      -mm = '0'+mm
-      -} 
-      -today = mm + '-' + dd + '-' + yyyy;
-      
       div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto mb-5" class="jumbotron")
         div(class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto")
           h1(class="display-3 font-weight-bold")  the last straw
@@ -140,7 +125,7 @@ html
                             input.btn( value="Login" class="btn btn-outline-light btn-lg")
       div(class="jumbotron" class="my700")
         div(class="container")
-          h1(class="display-4")  #{today} <br> total plastic saved: #{count}
+          h1(class="lead")  made by courtney brothers
 
 
         
