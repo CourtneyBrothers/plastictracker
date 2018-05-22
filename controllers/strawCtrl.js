@@ -120,22 +120,6 @@ module.exports.rawCountSaved = (req, res, next) => {
       })
   }
 
-  //get all plastic from saved from wastestream for all page
-  module.exports.getAllPlastic = (req,res,next)=>{
-    const {
-      sequelize
-     } = req.app.get('models');
-    sequelize.query(`select count(*) from user_saved_plastics`)
-    .then(result => {
-      console.log("result0", result[0], "result0")
-      res.render("welcome", {
-        result
-      })
-    })
-    .catch(error =>{
-     console.log(error,"getallplastic error")
-    })
-  }
 
   module.exports.postSaved = (req,res,next) =>{
     const{user_saved_plastic} = req.app.get('models');

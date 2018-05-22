@@ -12,7 +12,7 @@ const {
   logout
 } = require('../controllers/authCtrl.js');
 
-const {postStraw,getAllPlastic} = require('../controllers/strawCtrl.js')
+const {postStraw} = require('../controllers/strawCtrl.js')
 const {notSavedSUP} = require('../controllers/notSavedCtrl.js')
 
 // new users
@@ -23,7 +23,7 @@ router.post('/register', register);
 router.get('/login', displayLogin);
 router.post('/login', login);
 
-router.get('/welcome',getAllPlastic, isLoggedIn);
+router.get('/welcome', welcome, isLoggedIn);
 router.post('/logout', logout);
 
 // We add this to the welcome route as an additional step to take before calling

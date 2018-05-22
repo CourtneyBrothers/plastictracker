@@ -13,7 +13,6 @@ router.post('/notsavedplastic', postSUP,isLoggedIn);
 router.post('/reuse/:id',updateSUP,isLoggedIn);
 router.post('/recycle/:id',updateRecycledSUP,isLoggedIn);
 router.delete('/delete/:id',deletePlastic,isLoggedIn);
-// router.get('/all',getAllPlastic,isLoggedIn)
 router.get('/supdashboard',getAllSUP,isLoggedIn)
 
 

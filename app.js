@@ -67,16 +67,16 @@ app.use(flash());
 app.use(routes);
 
 // Add a 404 error handler
-app.use(function(req, res, next){
-  let error = new Error("Not Found. Try again, nice person");
-  error.status = 404;
-  res.status(404).render('404_error_template', {title: "Sorry, page not found"});
-  next(error)
-});
+// app.use(function(req, res, next){
+//   let error = new Error("Not Found. Try again, nice person");
+//   error.status = 404;
+//   res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+//   next(error)
+// });
 
-app.use( (error, req, res, next ) => {
-  res.status( error.status || 500);
-});
+// app.use( (error, req, res, next ) => {
+//   res.status( error.status || 500);
+// });
 
 // Add error handler to pipe all server errors to from the routing middleware
 
